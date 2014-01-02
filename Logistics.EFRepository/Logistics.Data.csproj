@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{90AA81C3-1420-4D14-992A-7DB19FF8C412}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logistics.Data</RootNamespace>
+    <AssemblyName>Logistics.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EF.Context.cs">
+      <DependentUpon>EF.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Mapping\BillDetail_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\BillRecord_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Bill_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Button_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Charge_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\ContractRate_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Contract_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Customer_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Department_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\EF.Mapping.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Mapping\Group_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Job_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Memorycard_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Menu_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\OperateLog_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\ProductBatch_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\ProductBrand_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\ProductMaterial_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\ProductModule_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Product_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Rack_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Role_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\StockDetail_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\StockMove_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Stock_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Store_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\SysUser_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\VenueStaff_Mapping.gen.cs">
+      <DependentUpon>EF.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryImpls\Repository.cs" />
+    <Compile Include="RepositoryImpls\SystemRep.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logistics.Domain\01.Logistics.Models.csproj">
+      <Project>{968BB112-1E59-4963-B0C9-C5C99500C39C}</Project>
+      <Name>01.Logistics.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="EF.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EF.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Mapping\EF.Mapping.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EF.Mapping.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

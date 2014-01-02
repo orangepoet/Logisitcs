@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Menu>
+@{
+    ViewBag.Title = "Menu";
+}
+@foreach (var item in Model.Where(m => m.ParentId == 1)) {
+    <div title="@item.DisplayName">
+        <ul class="menulist">
+            @if (item.ChildMenus != null) {
+                foreach (var child in item.ChildMenus.Where(m => m.Status != "D").OrderBy(m => m.Sort)) {
+                <li url="@Url.Content(child.MenuNo)" menuno="@child.MenuNo">
+                    <img src="@Url.Content(child.DisplayIcon)" />
+                    <span>@child.DisplayName</span> </li>
+                }
+            }
+        </ul>
+    </div>
+}

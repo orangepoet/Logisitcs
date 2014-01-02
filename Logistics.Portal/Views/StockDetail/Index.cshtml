@@ -1,0 +1,25 @@
+﻿<div id="list">
+</div>
+@section footer{
+    <script type="text/javascript">
+        var columns = [
+            { display: '码单编号', name: 'Did', align: 'left', width: 180, minWidth: 60 }
+            , { display: '存储卡号', name: 'Memorycard', align: 'left', width: 141, minWidth: 60 }
+            , { display: '块/件', name: 'Unit', align: 'left', width: 141, minWidth: 60 }
+            , { display: '散件', name: 'Hottoys', align: 'left', width: 141, minWidth: 60 }
+            , { display: '入库数量', name: 'Curinrpieces', align: 'left', width: 141, minWidth: 60 }
+            , { display: '入库重量', name: 'CurinWeight', align: 'left', width: 141, minWidth: 60 }
+            , { display: '出库数量', name: 'Curoutrpieces', align: 'left', width: 141, minWidth: 60 }
+            , { display: '出库重量', name: 'CuroutWeight', align: 'left', width: 141, minWidth: 60 }
+            , { display: '现有数量', name: 'Rpieces', align: 'left', width: 141, minWidth: 60 }
+            , { display: '现有重量', name: 'Weight', align: 'left', width: 141, minWidth: 60 }
+        ];
+
+        $(function () {
+            grid = $("#list").ligerGrid({
+                url: '@Url.Action("GetGrid")', columns: columns, dataAction: 'server', pageSize: 20, sortName: 'Did', sortOrder: 'asc',
+                rownumbers: true, width: '98%', height: '100%', heightDiff: -10, checkbox: false
+            })
+        });
+    </script>
+}

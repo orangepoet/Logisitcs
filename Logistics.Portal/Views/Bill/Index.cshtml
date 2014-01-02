@@ -1,0 +1,55 @@
+﻿<div id="list" />
+@section footer{
+    <script type="text/javascript">
+        var columns = [
+              { hide: true, display: '记录编号', name: 'Id' }
+            , { display: '开始日期', name: 'Fromdate', align: 'left', width: 180, minWidth: 60, type: 'date' }
+            , { display: '结束日期', name: 'Todate', align: 'left', width: 180, minWidth: 60, type: 'date' }
+            , { display: '备注', name: 'Remark', align: 'left', width: 300, minWidth: 60 }
+        ];
+        var toolbaritems = [
+              { id: "C", text: '生成账单', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/date_add.png")' }
+            , { line: true }
+            , { id: "D", text: '回退账单', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/date_delete.png")' }
+            , { line: true }
+            , { id: "E", text: '导出账单', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/page_excel.png")' }
+        ];
+
+        function toolbarclick(item) {
+            var width = 800;
+            var height = 400;
+            switch (item.id) {
+                case "C":
+                    $.ligerDialog.confirm("账单生成确认?", function (r) {
+                        if (r) {
+                            LG.gridpost('@Url.Action("Build")', null, grid);
+                        }
+                    });
+                    break;
+                case "D":
+                    $.ligerDialog.confirm("账单回退确认?", function (r) {
+                        if (r) {
+                            LG.gridpost('@Url.Action("Back")', null, grid);
+                        }
+                    });
+                    break;
+                case "E":
+                    $.ligerDialog.confirm("账单导出确认?", function (r) {
+                        if (r) {
+                            LG.gridpost('@Url.Action("Export")', null, grid);
+                        }
+                    });
+                    break;
+            }
+        }
+
+        $(function () {
+            grid = $("#list").ligerGrid({
+                url: '@Url.Action("GetGrid")', columns: columns, dataAction: 'server', pageSize: 20, sortName: 'Id', sortOrder: 'asc',
+                rownumbers: true, width: '98%', height: '100%', heightDiff: -10, checkbox: false, toolbar: {}
+            });
+            grid.toolbarManager.set("items", toolbaritems);
+        });
+        
+    </script>
+}

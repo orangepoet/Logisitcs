@@ -1,0 +1,70 @@
+﻿<div id="info">
+</div>
+<div id="list">
+</div>
+@section footer{
+    <script type="text/javascript">
+        var columns = [
+              { hide: true, display: '码单号', name: 'Did' }
+            , { hide: true, display: '客户编号', name: 'Customerid', align: 'left', width: 100, minWidth: 60 }
+            , { display: '客户名称', name: 'Customername', align: 'left', width: 220, minWidth: 60 }
+            , { display: '存储卡号', name: 'Memorycard', align: 'left', width: 220, minWidth: 60 }
+            , { display: '货品名称', name: 'Proname', align: 'left', width: 80, minWidth: 20 }
+            , { display: '品牌', name: 'Brandname', align: 'left', width: 80, minWidth: 30 }
+            , { display: '规格', name: 'Moname', align: 'left', width: 80, minWidth: 30 }
+            , { display: '材质', name: 'Maname', align: 'left', width: 80, minWidth: 30 }
+            , { display: '数量', name: 'Rpieces', align: 'right', width: 80, minWidth: 30 }
+            , { display: '单位', name: 'Qunit', align: 'left', width: 40, minWidth: 10, isSort: false }
+            , { display: '重量', name: 'Weight', align: 'right', width: 80, minWidth: 30 }
+            , { display: '单位', name: 'Wunit', align: 'left', width: 40, minWidth: 10, isSort: false }
+            , { display: '货位', name: 'Rackname', align: 'left', width: 80, minWidth: 60, isSort: false }
+            , { display: '车（箱）号', name: 'Carno', align: 'left', width: 80, minWidth: 40 }
+        ];
+        var toolbaritems = [
+              { id: "DC", text: '显示客户', click: toolbarclick, img: '@Url.Content("~/Content/icons/32X32/customers.gif")' }
+            , { line: true }
+            , { id: "SO", text: '出库', click: toolbarclick, img: '@Url.Content("~/Content/icons/32X32/logout.gif")' }
+            , { line: true }
+            , { id: "ST", text: '过户', click: toolbarclick, img: '@Url.Content("~/Content/icons/32X32/import.png")' }
+            , { line: true }
+            , { id: "RC", text: '货位变更', click: toolbarclick, img: '@Url.Content("~/Content/icons/32X32/tag.gif")' }
+            , { line: true }
+            , { id: "R", text: '查看', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/detail.png")' }
+        ];
+
+        function toolbarclick(btn) {
+            switch (btn.id) {
+                case "DC":
+                    child = $.ligerDialog.open({ width: 800, height: 400, url: '@Url.Action("FilterCustomer", "Stock")', showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '客户列表' });
+                    break;
+                case "SO":
+                    var rows = grid.getSelected();
+                    if (!rows) { LG.showError('请选择行!'); return }
+                    child = $.ligerDialog.open({ width: 1000, height: 600, url: '@Url.Action("Stockout")' + '/' + rows.CustomerId.toString(), showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '出库管理' });
+                    break;
+                case "R":
+                    var rows = grid.getSelected();
+                    if (!rows) { LG.showError('请选择行!'); return }
+                    child = $.ligerDialog.open({ width: 1000, height: 600, url: '@Url.Action("Detail")' + '/' + rows.Did.toString(), showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '库存信息' });
+                    break;
+                case "D":
+                    var rows = grid.getSelecteds();
+                    if (rows.length == 0) { $.ligerDialog.warn('请选择行!'); return }
+                    $.ligerDialog.confirm("确认删除吗", function (r) {
+                        if (r) {
+                            LG.gridpost('@Url.Action("Delete")', { data: JSON.stringify(rows) }, grid);
+                        }
+                    });
+                    break;
+            }
+        }
+
+        $(function () {
+            grid = $("#list").ligerGrid({
+                url: '@Url.Action("GetGrid")', columns: columns, dataAction: 'server', pageSize: 50, sortName: 'Did', sortOrder: 'desc',
+                rownumbers: true, width: '98%', height: '100%', heightDiff: -10, checkbox: false, toolbar: {}
+            })
+            grid.toolbarManager.set("items", toolbaritems);
+        });
+    </script>
+}

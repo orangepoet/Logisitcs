@@ -1,0 +1,67 @@
+﻿<div id="list" />
+@section footer{
+    <script type="text/javascript">
+        var columns = [
+              { display: '用户名', name: 'UserId' }
+            , { display: '角色名', name: 'RoleName', align: 'left', width: 220, minWidth: 60 }
+            , { display: '电话', name: 'Phone', align: 'left', width: 141, minWidth: 60 }
+            , { display: '传真', name: 'Fax', align: 'left', width: 141, minWidth: 60 }
+            , { display: '邮件', name: 'Email', align: 'left', width: 141, minWidth: 60 }
+            , { display: 'QQ', name: 'QQ', QQ: 'left', width: 141, minWidth: 60 }
+            , { display: '昵称', name: 'NickName', align: 'left', width: 141, minWidth: 60 }
+            , { display: '地址', name: 'Address', align: 'left', width: 141, minWidth: 60 }
+            , { display: '真名', name: 'RealName', align: 'left', width: 141, minWidth: 60 }
+            , { display: '性别', name: 'Sex', align: 'left', width: 141, minWidth: 60 }
+            , { display: '最后登陆时间', name: 'LastLoginTime', align: 'left', width: 141, minWidth: 60, type: "datetime" }
+        ];
+        var toolbaritems = [
+              { id: "C", text: '添加', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/add.png")' }
+            , { line: true }
+            , { id: "R", text: '明细', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/detail.png")' }
+            , { line: true }
+            , { id: "U", text: '修改', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/edit.png")' }
+            , { line: true }
+            , { id: "D", text: '删除', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/delete.png")' }
+        ];
+        $(function () {
+            grid = $("#list").ligerGrid({
+                url: '@Url.Action("GetGrid")', columns: columns, dataAction: 'server', pageSize: 20, sortName: 'UserId', sortOrder: 'asc',
+                rownumbers: true, width: '98%', height: '100%', heightDiff: -10, checkbox: false, toolbar: {}
+            });
+            grid.toolbarManager.set("items", toolbaritems);
+        });
+
+        function toolbarclick(item) {
+            var width = 800;
+            var height = 400;
+            switch (item.id) {
+                case "C":
+                    child = $.ligerDialog.open({ width: width, height: height, url: '@Url.Action("Create")', showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '客户新增' });
+                    break;
+                case "R":
+                    var rows = grid.getSelected();
+                    if (!rows) { $.ligerDialog.warn('请选择行!'); return }
+                    child = $.ligerDialog.open({ width: width, height: height, url: '@Url.Action("Detail")' + '/' + rows.CustomerId.toString(), showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '客户更新' });
+                    break;
+                case "U":
+                    var rows = grid.getSelected();
+                    if (!rows) { $.ligerDialog.warn('请选择行!'); return }
+                    child = $.ligerDialog.open({ width: width, height: height, url: '@Url.Action("Update")' + '/' + rows.CustomerId.toString(), showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '客户更新' });
+                    break;
+                case "D":
+                    var rows = grid.getSelecteds();
+                    if (rows.length == 0) { $.ligerDialog.warn('请选择行!'); return }
+                    $.ligerDialog.confirm("确认删除吗", function (r) {
+                        if (r) {
+                            LG.gridpost('@Url.Action("Delete")', { data: JSON.stringify(rows) }, grid);
+                        }
+                    });
+                    break;
+                case "O":
+                    location.href = '@Url.Action("Export")';
+                    break;
+            }
+        }
+        
+    </script>
+}

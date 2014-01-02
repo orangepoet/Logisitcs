@@ -1,0 +1,64 @@
+﻿<div id="list" />
+@section footer{
+    <script type="text/javascript">
+        var columns = [{ hide: true, display: '仓库编号', name: 'Storeid' }
+            , { display: '仓库名', name: 'Names', align: 'left', width: 150, minWidth: 60 }
+            , { display: '简称', name: 'Shortname', align: 'left', width: 150, minWidth: 60 }
+            , { display: '助记码', name: 'Mncode', align: 'left', width: 150, minWidth: 60 }
+            , { display: '地址', name: 'Address', align: 'left', width: 150, minWidth: 60 }
+            , { display: '电话', name: 'Phones', align: 'left', width: 150, minWidth: 60 }
+            , { display: '传真', name: 'Faxs', align: 'left', width: 150, minWidth: 60 }
+            , { display: '仓库总面积', name: 'Totalarea', align: 'left', width: 150, minWidth: 60 }
+            , { display: '室内', name: 'Indoorarea', align: 'left', width: 150, minWidth: 60 }
+            , { display: '室外', name: 'Outdoorarea', align: 'left', width: 150, minWidth: 60 }
+            , { display: '负责人', name: 'Principals', align: 'left', width: 150, minWidth: 60 }
+            , { display: '手机', name: 'Mobiles', align: 'left', width: 150, minWidth: 60 }
+        ];
+        var toolbaritems = [
+              { id: "C", text: '添加', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/add.png")' }
+            , { line: true }
+            , { id: "R", text: '明细', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/detail.png")' }
+            , { line: true }
+            , { id: "U", text: '修改', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/edit.png")' }
+            , { line: true }
+            , { id: "D", text: '删除', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/delete.png")' }
+        ];
+
+        function toolbarclick(item) {
+            var width = 800;
+            var height = 400;
+            switch (item.id) {
+                case "C":
+                    child = $.ligerDialog.open({ width: width, height: height, url: '@Url.Action("Create")', showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '仓库新增' });
+                    break;
+                case "R":
+                    var rows = grid.getSelected();
+                    if (!rows) { $.ligerDialog.warn('请选择行!'); return }
+                    child = $.ligerDialog.open({ width: width, height: height, url: '@Url.Action("Detail")' + '/' + rows.Storeid.toString(), showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '仓库明细' });
+                    break;
+                case "U":
+                    var rows = grid.getSelected();
+                    if (!rows) { $.ligerDialog.warn('请选择行!'); return }
+                    child = $.ligerDialog.open({ width: width, height: height, url: '@Url.Action("Update")' + '/' + rows.Storeid.toString(), showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '仓库更新' });
+                    break;
+                case "D":
+                    var rows = grid.getSelecteds();
+                    if (rows.length == 0) { $.ligerDialog.warn('请选择行!'); return }
+                    $.ligerDialog.confirm("确认删除吗", function (r) {
+                        if (r) {
+                            LG.gridpost('@Url.Action("Delete")', { data: JSON.stringify(rows) }, grid);
+                        }
+                    });
+                    break;
+            }
+        }
+
+        $(function () {
+            grid = $("#list").ligerGrid({
+                url: '@Url.Action("GetGrid")', columns: columns, dataAction: 'server', pageSize: 20, sortName: 'Storeid', sortOrder: 'asc',
+                rownumbers: true, width: '98%', height: '100%', heightDiff: -10, checkbox: false, toolbar: {}
+            });
+            grid.toolbarManager.set("items", toolbaritems);
+        });
+    </script>
+}

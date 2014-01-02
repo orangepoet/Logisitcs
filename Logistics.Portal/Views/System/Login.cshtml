@@ -1,0 +1,81 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户登录</title>
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")" />
+    @Styles.Render("~/Content/ligerui/login")
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>
+            </h1>
+            <ul class="nav">
+            </ul>
+        </div>
+        <div id="content">
+            <div class="left_main">
+                <h2>
+                    渠道信息</h2>
+                <ul class="news" id="qdkb_html" style="color: #FFFFFF;">
+                    <li>&nbsp;&nbsp;&nbsp;&nbsp;欢迎使用网站管理系统!</li>
+                </ul>
+                <div class="help_center">
+                    <h3>
+                        <a href="###" target="_blank">帮助中心</a></h3>
+                    <p>
+                        <strong>提供专业的技术问题解答</strong></p>
+                </div>
+                <div class="bbs">
+                    <h3>
+                        <a href="##" target="_blank">技术支持</a></h3>
+                    <p>
+                        <strong>联系方式:19591592514 程先生</strong></p>
+                </div>
+            </div>
+            @using (Html.BeginForm("Login", "System")) {
+                <fieldset class="right_main">
+                    <legend>用户登录</legend>
+                    <dl class="setting">
+                        <dt></dt>
+                        <dd>
+                            @Html.ValidationSummary(false)
+                        </dd>
+                        <dt>
+                            <label>
+                                用户名</label>
+                        </dt>
+                        <dd>
+                            <span class="text_input">
+                                <input type="text" name="UserName" id="UserName" /></span></dd>
+                        <dt>
+                            <label>
+                                密 码</label>
+                        </dt>
+                        <dd>
+                            <span class="text_input">
+                                <input type="password" name="Password" id="Password" /></span></dd>
+                        <dt>
+                            <label>
+                                验证码</label>
+                        </dt>
+                        <dd>
+                            <span class="short_input">
+                                <input id="CheckCode" type="text" style="text-transform: uppercase;" name="CheckCode" /></span>
+                            <span class="yzm">
+                                <img id="vdimgck" align="absmiddle"  onClick="this.src=this.src+'?'" style="cursor: pointer;" alt="看不清？点击更换" src="@Url.Content("~/System/GetImgVerifyChars")"/></span></dd>
+                        <dd>
+                            <input type="submit" id="submit" name="submit" class="login_btn" value="" />
+                        </dd>
+                    </dl>
+                </fieldset>
+            }
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+</body>
+</html>

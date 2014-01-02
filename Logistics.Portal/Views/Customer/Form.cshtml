@@ -1,0 +1,63 @@
+﻿@{
+    string action = (string)ViewBag.Action;
+    string formAction = Url.Action(action);
+    int id = ViewBag.Id ?? 0;
+    string url = Url.Action("Get", new { id = id });
+}
+<div title="客户信息">
+    <form id="form1" method="post" action="@formAction">
+    @Html.ValidationSummary(true)
+    </form>
+</div>
+<div class="form-bar">
+    <input id="btnsubmit" type="button" class="button" name="submit" value="提交" />
+</div>
+@section footer{
+    @Scripts.Render("~/bundles/ligerui-form")
+    <script type="text/javascript">
+        var id = '@ViewBag.Id';
+        var action = '@action';
+        var fields = [
+            { display: "公司名称", name: "CustomerName", newline: false, labelWidth: 100, width: 220, space: 30, type: "text", group: "客户信息",
+                validate: { required: true, maxlength: 50 }
+            }
+            , { display: "简称", name: "ShortName", newline: false, labelWidth: 100, width: 220, space: 30, type: "text",
+                validate: { required: true, maxlength: 20 }
+            }
+            , { display: "助记码", name: "MnCode", newline: true, labelWidth: 100, width: 220, space: 30, type: "text",
+                validate: { maxlength: 50 }
+            }
+            , { display: "公司地址", name: "Address", newline: false, labelWidth: 100, width: 220, space: 30, type: "text",
+                validate: { maxlength: 50 }
+            }
+            , { display: "联系电话", name: "Phones", newline: true, labelWidth: 100, width: 220, space: 30, type: "text",
+                validate: { maxlength: 50 }
+            }
+            , { display: "邮政编码", name: "PostCode", newline: false, labelWidth: 100, width: 220, space: 30, type: "text",
+                validate: { maxlength: 50 }
+            }
+            , { display: "联系人", name: "Contract", newline: true, labelWidth: 100, width: 220, space: 30, type: "text",
+                validate: { maxlength: 50 }
+            }
+            , { display: "客户状态", name: "Status", newline: false, labelWidth: 100, width: 220, space: 30, type: "text",
+                validate: { required: true, maxlength: 1 }
+            }
+            , { display: "备注", name: "Remarks", newline: true, labelWidth: 100, width: 520, space: 30, type: "textarea",
+                validate: { maxlength: 400 }
+            }
+        ];
+        $(function () {
+            var form = $("#form1");
+            form.ligerForm({ inputWidth: 280, fields: fields });
+            var action = '@action';
+            if (action != "Create") {
+                LG.loadForm(form, { url: '@url' });
+            }
+            if (action == 'Update' || action == 'Create') {
+                LG.setFormStatus(form, true, parent);
+            } else {
+                LG.setFormStatus(form, false);
+            }
+        });
+    </script>
+}

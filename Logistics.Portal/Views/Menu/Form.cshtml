@@ -1,0 +1,54 @@
+﻿@{
+    string action = (string)ViewBag.Action;
+    string formAction = Url.Action(action);
+    int id = ViewBag.Id ?? 0;
+    string url = Url.Action("Get", new { id = id });
+}
+<div title="菜单信息">
+    <form id="form1" method="post" action="@formAction">
+    @Html.ValidationSummary(true)
+    </form>
+</div>
+<div class="form-bar">
+    <input id="btnsubmit" type="button" class="button" name="submit" value="提交" />
+</div>
+@section footer{
+    @Scripts.Render("~/bundles/ligerui-form")
+    <script type="text/javascript">
+        var action = '@action';
+        var fields = [
+            { display: "菜单名", name: "DisplayName", newline: true, labelWidth: 80, width: 180, space: 30, type: "text",
+                validate: { required: true, maxlength: 30 }
+            }
+            , { display: "控制器", name: "MenuNo", newline: false, labelWidth: 80, width: 180, space: 30, type: "text",
+                validate: { maxlength: 50 }
+            }
+            , { display: "图样", name: "DisplayIcon", newline: true, labelWidth: 80, width: 180, space: 30, type: "select"
+                , validate: { required: true, maxlength: 100 }
+                , options: {
+                    tree: {
+                        url: '@Url.Action("Action", "Controller")',
+                        checkbox: false,
+                        nodeWidth: 220
+                    }
+                }
+            }
+            , { display: "排序号", name: "Sort", newline: false, labelWidth: 80, width: 180, space: 30, type: "int",
+                validate: { required: true, maxlength: 50 }
+            }
+        ];
+        $(function () {
+            var form = $("#form1");
+            form.ligerForm({ inputWidth: 280, fields: fields });
+            var action = '@action';
+            if (action != "Create") {
+                LG.loadForm(form, { url: '@url' });
+            }
+            if (action == 'Update' || action == 'Create') {
+                LG.setFormStatus(form, true, parent);
+            } else {
+                LG.setFormStatus(form, false);
+            }
+        });
+    </script>
+}

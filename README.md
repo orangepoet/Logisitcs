@@ -1,4 +1,4 @@
-Logisitcs
+logistics
 =========
 
-very simple logistics project, only for exercise.
+A demo of logistics project

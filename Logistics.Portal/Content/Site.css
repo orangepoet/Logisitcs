@@ -1,0 +1,70 @@
+﻿body
+{
+    margin: 0;
+    padding: 0;
+}
+header
+{
+    background: url("images/menu/head_bg.gif") repeat-x scroll center bottom transparent;
+    border-top: 1px solid #7C96AF;
+    border-bottom: 2px solid #4E7194;
+    height: 60px;
+    line-height: 30px;
+    margin: 0;
+    position: relative;
+}
+
+header .logo
+{
+    color: #070A0C;
+    font-size: 20px;
+    margin-top: 20px;
+    padding-left: 30px;
+}
+header .login
+{
+    background-color: #EBF5FC;
+    background-image: url("images/Menu/siteico.gif");
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    position: absolute;
+    float: right;
+    top: 42px;
+    right: 0;
+    color: #444;
+    height: 30px;
+    width: 300px;
+    padding-left: 10px;
+    line-height: 27px;
+}
+header .login > span
+{
+    margin-left: 30px;
+}
+article
+{
+    margin: 3px auto 0;
+    width: 99.2%;
+}
+article p
+{
+    line-height: 20px;
+}
+.menulist li
+{
+    cursor: pointer;
+    line-height: 24px;
+    height: 24px;
+}
+.menulist li img
+{
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    padding-left: 4px;
+}
+.menulist li.over
+{
+    background: url("images/index/menuitem.gif") repeat-x scroll 0 0 transparent;
+}
+

@@ -1,0 +1,25 @@
+﻿<div id="list">
+</div>
+@section footer{
+    <script type="text/javascript">
+        var toolbaritems = [
+            { id: "S", text: '确定', click: toolbarclick, img: '@Url.Content("~/Content/icons/silkicons/accept.png")' }
+        ];
+        $(function () {
+            memgrid = $("#list").ligerGrid({
+                url: parent.url_getnomembers + '/' + parent.groupid, columns: parent.memcolumns, dataAction: 'server', pageSize: 10, enabledSort: false,
+                rownumbers: true, width: '98%', height: '100%', heightDiff: -10, checkbox: true, toolbar: {}
+            });
+            if (memgrid.toolbarManager)
+                memgrid.toolbarManager.set("items", toolbaritems);
+        });
+
+        function toolbarclick(item) {
+            var rows = memgrid.getCheckedRows();
+            LG.gridpost('@Url.Action("AddMembers")', { data: JSON.stringify(rows), groupid: parent.groupid }, parent.grid);
+            //parent.grid.addRows(rows);
+            //parent.child.close();
+        }
+        
+    </script>
+}

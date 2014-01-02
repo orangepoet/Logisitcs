@@ -1,0 +1,45 @@
+﻿<div id="list">
+</div>
+@section footer{
+    <script type="text/javascript">
+        var columns = [
+              { hide: true, display: '公司编号', name: 'CustomerId' }
+            , { display: '公司名称', name: 'CustomerName', align: 'left', width: 180, minWidth: 60 }
+            , { display: '简称', name: 'ShortName', align: 'left', width: 141, minWidth: 60 }
+            , { display: '助记码', name: 'MnCode', align: 'left', width: 141, minWidth: 60 }
+            , { display: '公司地址', name: 'Address', align: 'left', width: 141, minWidth: 60 }
+            , { display: '联系电话', name: 'Phones', align: 'left', width: 141, minWidth: 60 }
+            , { display: '联系人', name: 'Contract', align: 'left', width: 141, minWidth: 60 }
+        ];
+        var toolbaritems = [
+            { id: "S", text: '确定', img: '@Url.Content("~/Content/icons/silkicons/accept.png")'
+                , click: function () {
+                    var rows = memgrid.getCheckedRows();
+                    parent.grid.loadData(fn_filter(rows));
+                    parent.child.close();
+                }
+            }
+        ];
+
+        function fn_filter(arr) {
+            if (!parent.grid) return null;
+            var clause = function (rowdata, rowindex) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].CustomerId === rowdata.Customerid)
+                        return true;
+                }
+                return false;
+            };
+            return clause;
+        }
+
+        $(function () {
+            //grid
+            memgrid = $("#list").ligerGrid({
+                url: '@Url.Action("GetGrid","Customer")', columns: columns, dataAction: 'server', pageSize: 10, enabledSort: false, rownumbers: true,
+                width: '98%', height: '100%', heightDiff: -10, checkbox: true, toolbar: { "items": toolbaritems }
+            });
+        });
+
+    </script>
+}

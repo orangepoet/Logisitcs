@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{968BB112-1E59-4963-B0C9-C5C99500C39C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Logistics.Domain</RootNamespace>
+    <AssemblyName>Logistics.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Bill.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BillDetail.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\BillRecord.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Button.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Charge.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Contract.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ContractRate.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Customer.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Department.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\EF.Entities.gen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Group.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Job.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LoginUser.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Memorycard.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Menu.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\OperateLog.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Product.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProductBatch.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProductBrand.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProductMaterial.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ProductModule.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Rack.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Role.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Stock.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StockDetail.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\StockMove.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Store.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\VenueStaff.gen.cs">
+      <DependentUpon>EF.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IBaseRep.cs" />
+    <Compile Include="Repository\IBillRep.cs" />
+    <Compile Include="Repository\ICustomerRep.cs" />
+    <Compile Include="Repository\IGroupRep.cs" />
+    <Compile Include="Repository\IJobRep.cs" />
+    <Compile Include="Repository\IMemoryCardRep.cs" />
+    <Compile Include="Repository\IMenuRep.cs" />
+    <Compile Include="Repository\IButtonRep.cs" />
+    <Compile Include="Repository\IRoleRep.cs" />
+    <Compile Include="Repository\IStockDetailRep.cs" />
+    <Compile Include="Repository\IStockRep.cs" />
+    <Compile Include="Repository\IStoreRep.cs" />
+    <Compile Include="Repository\ISystemRep.cs" />
+    <Compile Include="Repository\ILoginUserRep.cs" />
+    <Compile Include="Repository\IVenueStaffRep.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Entities\EF.Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EF.Entities.gen.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

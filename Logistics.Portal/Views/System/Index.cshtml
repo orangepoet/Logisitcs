@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>全胜物流管理系统</title>
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")" />
+    @Styles.Render("~/Content/site")
+    @Styles.Render("~/Content/ligerui/Aqua/css/bundle")
+</head>
+<body>
+    <header>
+        <div class="logo">
+            全胜物流管理系统</div>
+        <div class="login">
+            <span>欢迎您:</span> &nbsp; [<a id="achangepassword" href="#">修改密码</a>] &nbsp; [<a id="alogoff"
+                href="#">退出</a>]
+        </div>
+    </header>
+    <article>
+        <div id="nav" position="left" title="主要菜单">
+            @{Html.RenderAction("GetMenu", "Menu", new { frmDB = true });}
+        </div>
+        <div id="tabs" position="center">
+            <div tabid="home" title="我的主页">
+                <p>
+                    Welcome to my website.
+                </p>
+            </div>
+        </div>
+    </article>
+    <div id="pageloading" style="display: block;" />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/ligerui")
+    @Scripts.Render("~/bundles/site")
+</body>
+</html>

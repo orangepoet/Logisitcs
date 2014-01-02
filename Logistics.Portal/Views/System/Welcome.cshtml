@@ -1,0 +1,120 @@
+﻿<div  style="padding:10px; overflow:auto; text-align:center;background:#FFFFFF;">
+  <div class="navbar"><div class="navbar-l"></div><div class="navbar-r"></div>
+        <div class="navbar-icon"><img src="@Url.Content("~/Content/icons/32X32/hire_me.gif")" /></div>
+        <div class="navbar-inner"> 
+        <b><span id="labelusername"></span><span></span><span id="labelwelcome"></span><span>欢迎使用权限管理系统</span></b>
+        <a href="javascript:void(0)" id="usersetup" style="display:none">账号设置</a>
+        </div>
+        </div>
+
+        <div class="withicon">
+            <div class="icon"><img src="@Url.Content("~/Content/images/index/time.gif")" /></div>
+            <span id="labelLastLoginTime"></span>
+        </div>
+
+
+        <div class="navline">
+        </div>
+        
+        <div class="links"> 
+        </div>
+
+        <div class="l-clear"></div>
+
+        <div class="button" style=" margin-top:30px;" onclick="LG.addfavorite(loadMyFavorite)">
+            <div class="button-l"> </div>
+            <div class="button-r"> </div>
+            <div class="button-icon"> <img src="@Url.Content("~/Content/ligerUI/icons/add.gif")" /></div> 
+            <span>增加快捷方式</span>  
+        </div>
+
+          
+
+
+        <div class="navbar"><div class="navbar-l"></div><div class="navbar-r"></div>
+        <div class="navbar-icon"><img src="@Url.Content("~/Content/icons/32X32/collaboration.gif")" /></div>
+        <div class="navbar-inner"> 
+        <b>系统简要说明</b> 
+        </div>
+        </div>
+
+        <p style="margin:10px;">本系统开发人员:TZHSWEET</p>
+
+         <p style="margin:10px;">2012-8-4</p>
+       
+
+
+        <div class="navline">
+        </div>
+
+         
+           <div class="withicon">
+            <div class="icon"> 
+                <img src="@Url.Content("~/Content/icons/32X32/communication.gif")" /></div>
+            <span><b>本系统前端采用LigerUI开发!利用Asp.Net MVC做权限控制,Entity FrameWork数据访问层,传统的N层架构!</b></span>
+        </div>
+
+
+
+           <p class="p1"><b>特别说明</b>:作者:TZHSWEET,一直在努力,从未曾放弃!我的博客:<a href="http://www.cnblogs.com/mysweet/">TZHSWEET的博客</a></p>
+           
+           <script type="text/javascript">
+               $("div.link").live("mouseover", function () {
+                   $(this).addClass("linkover");
+
+               }).live("mouseout", function () {
+                   $(this).removeClass("linkover");
+
+
+               }).live('click', function (e) {
+                   var text = $("a", this).html();
+                   var url = $(this).attr("url");
+                   parent.f_addTab(null, text, url);
+               });
+
+               $("div.link .close").live("mouseover", function () {
+                   $(this).addClass("closeover");
+               }).live("mouseout", function () {
+                   $(this).removeClass("closeover");
+               }).live('click', function () {
+                   var id = $(this).parent().attr("id");
+
+                   LG.ajax({
+                       loading: '正在删除用户收藏中...',
+                       url: '@Url.Content("~/Admin/Manage/RemoveFavorite")',
+                       data: { ID: id },
+                       success: function () {
+                           loadMyFavorite();
+                       },
+                       error: function (message) {
+                           LG.showError(message);
+                       }
+                   });
+
+                   return false;
+               });
+               var links = $(".links");
+               function loadMyFavorite() {
+                   LG.ajax({
+                       loading: '正在加载用户收藏中...',
+                       url: '@Url.Content("~/Admin/Manage/GetMyFavorite")',
+                       success: function (Favorite) {
+                           links.html("");
+                           $(Favorite).each(function (i, data) {
+                               var item = $('<div class="link"><img src="" /><a href="javascript:void(0)"></a><div class="close"></div></div>');
+                               $("img", item).attr("src", data.Icon);
+                               $("a", item).html(data.FavoriteTitle);
+                               item.attr("id", data.FavoriteID);
+                               //item.attr("title", data.FavoriteContent || data.FavoriteTitle);
+                               item.attr("url", data.Url);
+                               links.append(item);
+                           });
+                       },
+                       error: function (message) {
+                           LG.showError(message);
+                       }
+                   });
+               }
+                  
+           </script>  
+</div>

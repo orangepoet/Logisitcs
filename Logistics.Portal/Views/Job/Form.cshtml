@@ -1,0 +1,44 @@
+﻿@{
+    string action = (string)ViewBag.Action;
+    string formAction = Url.Action(action);
+    int id = ViewBag.Id ?? 0;
+    string url = Url.Action("Get", new { id = id });
+}
+<div title="工种信息">
+    <form id="form1" method="post" action="@formAction">
+    @Html.ValidationSummary(true)
+    </form>
+</div>
+<div class="form-bar">
+    <input id="btnsubmit" type="button" class="button" name="submit" value="提交" />
+</div>
+@section footer{
+    @Scripts.Render("~/bundles/ligerui-form")
+    <script type="text/javascript">
+        var action = '@action';
+        var fields = [
+           { display: "工种编号", name: "Id", newline: false, labelWidth: 100, width: 220, space: 30, type: "text", group: "工种信息",
+               validate: { required: true, maxlength: 50 }
+           }
+            , { display: "工种名称", name: "Name", newline: false, labelWidth: 100, width: 220, space: 30, type: "text",
+                validate: { required: true, maxlength: 20 }
+            }
+            , { display: "备注", name: "Remark", newline: true, labelWidth: 100, width: 550, space: 30, type: "textarea",
+                validate: { maxlength: 50 }
+            }
+        ];
+        $(function () {
+            var form = $("#form1");
+            form.ligerForm({ inputWidth: 280, fields: fields });
+            var action = '@action';
+            if (action != "Create") {
+                LG.loadForm(form, { url: '@url' });
+            }
+            if (action == 'Update' || action == 'Create') {
+                LG.setFormStatus(form, true, parent);
+            } else {
+                LG.setFormStatus(form, false);
+            }
+        });
+    </script>
+}

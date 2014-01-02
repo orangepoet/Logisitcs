@@ -1,0 +1,2710 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LogisticsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="LogisticsModelStoreContainer">
+          <EntitySet Name="BillDetails" EntityType="LogisticsModel.Store.BillDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BillRecords" EntityType="LogisticsModel.Store.BillRecords" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Bills" EntityType="LogisticsModel.Store.Bills" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Buttons" EntityType="LogisticsModel.Store.Buttons" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Charge" EntityType="LogisticsModel.Store.Charge" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContractRates" EntityType="LogisticsModel.Store.ContractRates" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contracts" EntityType="LogisticsModel.Store.Contracts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CustomerGroup" EntityType="LogisticsModel.Store.CustomerGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customers" EntityType="LogisticsModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Departments" EntityType="LogisticsModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Groups" EntityType="LogisticsModel.Store.Groups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Jobs" EntityType="LogisticsModel.Store.Jobs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoginUsers" EntityType="LogisticsModel.Store.LoginUsers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Memorycards" EntityType="LogisticsModel.Store.Memorycards" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Menus" EntityType="LogisticsModel.Store.Menus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OperateLogs" EntityType="LogisticsModel.Store.OperateLogs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductBatchs" EntityType="LogisticsModel.Store.ProductBatchs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductBrands" EntityType="LogisticsModel.Store.ProductBrands" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductMaterials" EntityType="LogisticsModel.Store.ProductMaterials" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductModules" EntityType="LogisticsModel.Store.ProductModules" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="LogisticsModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Racks" EntityType="LogisticsModel.Store.Racks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoleButton" EntityType="LogisticsModel.Store.RoleButton" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoleMenu" EntityType="LogisticsModel.Store.RoleMenu" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="LogisticsModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StockDetails" EntityType="LogisticsModel.Store.StockDetails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StockMoves" EntityType="LogisticsModel.Store.StockMoves" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Stocks" EntityType="LogisticsModel.Store.Stocks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Stores" EntityType="LogisticsModel.Store.Stores" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VenueStaffs" EntityType="LogisticsModel.Store.VenueStaffs" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_BillDetails_Customers" Association="LogisticsModel.Store.FK_BillDetails_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="BillDetails" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillDetails_Memorycard" Association="LogisticsModel.Store.FK_BillDetails_Memorycard">
+            <End Role="Memorycards" EntitySet="Memorycards" />
+            <End Role="BillDetails" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillDetails_Record" Association="LogisticsModel.Store.FK_BillDetails_Record">
+            <End Role="BillRecords" EntitySet="BillRecords" />
+            <End Role="BillDetails" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bills_Customer" Association="LogisticsModel.Store.FK_Bills_Customer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bills_Record" Association="LogisticsModel.Store.FK_Bills_Record">
+            <End Role="BillRecords" EntitySet="BillRecords" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractRates_Contracts_Conid" Association="LogisticsModel.Store.FK_ContractRates_Contracts_Conid">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="ContractRates" EntitySet="ContractRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractRates_Products_Proid" Association="LogisticsModel.Store.FK_ContractRates_Products_Proid">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ContractRates" EntitySet="ContractRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Customers_Customerid" Association="LogisticsModel.Store.FK_Contracts_Customers_Customerid">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerGroup_Customers_CustomerId" Association="LogisticsModel.Store.FK_CustomerGroup_Customers_CustomerId">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerGroup" EntitySet="CustomerGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerGroup_Groups_Groupid" Association="LogisticsModel.Store.FK_CustomerGroup_Groups_Groupid">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="CustomerGroup" EntitySet="CustomerGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Memorycards_Customer" Association="LogisticsModel.Store.FK_Memorycards_Customer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Memorycards" EntitySet="Memorycards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menus_Menus" Association="LogisticsModel.Store.FK_Menus_Menus">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="Menus1" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductBatchs_Products_Proid" Association="LogisticsModel.Store.FK_ProductBatchs_Products_Proid">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductBatchs" EntitySet="ProductBatchs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductMaterials_Products_Proid" Association="LogisticsModel.Store.FK_ProductMaterials_Products_Proid">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductMaterials" EntitySet="ProductMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModules_Products_Proid" Association="LogisticsModel.Store.FK_ProductModules_Products_Proid">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="ProductModules" EntitySet="ProductModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Racks_Racks_Rerackid" Association="LogisticsModel.Store.FK_Racks_Racks_Rerackid">
+            <End Role="Racks" EntitySet="Racks" />
+            <End Role="Racks1" EntitySet="Racks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleButton_Buttons_ButtonId" Association="LogisticsModel.Store.FK_RoleButton_Buttons_ButtonId">
+            <End Role="Buttons" EntitySet="Buttons" />
+            <End Role="RoleButton" EntitySet="RoleButton" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleButton_Roles_RoleId" Association="LogisticsModel.Store.FK_RoleButton_Roles_RoleId">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RoleButton" EntitySet="RoleButton" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleMenu_Menus_MenuId" Association="LogisticsModel.Store.FK_RoleMenu_Menus_MenuId">
+            <End Role="Menus" EntitySet="Menus" />
+            <End Role="RoleMenu" EntitySet="RoleMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleMenu_Roles_RoleId" Association="LogisticsModel.Store.FK_RoleMenu_Roles_RoleId">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RoleMenu" EntitySet="RoleMenu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockMoves_Customers" Association="LogisticsModel.Store.FK_StockMoves_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="StockMoves" EntitySet="StockMoves" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stores_Stores_Restoreid" Association="LogisticsModel.Store.FK_Stores_Stores_Restoreid">
+            <End Role="Stores" EntitySet="Stores" />
+            <End Role="Stores1" EntitySet="Stores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles_RoleId" Association="LogisticsModel.Store.FK_Users_Roles_RoleId">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="LoginUsers" EntitySet="LoginUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BillDetails">
+          <Key>
+            <PropertyRef Name="Bid" />
+          </Key>
+          <Property Name="Bid" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Recordid" Type="int" Nullable="false" />
+          <Property Name="Memoryid" Type="bigint" Nullable="false" />
+          <Property Name="Memorycard" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="Itemtime" Type="datetime" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="Inweight" Type="decimal" Scale="3" />
+          <Property Name="Outweight" Type="decimal" Scale="3" />
+          <Property Name="Sweight" Type="decimal" Scale="3" />
+          <Property Name="Rate" Type="decimal" Scale="3" />
+          <Property Name="Days" Type="int" />
+          <Property Name="Computation" Type="decimal" Scale="3" />
+          <Property Name="Storefee" Type="decimal" Scale="2" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Createuser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BillRecords">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Fromdate" Type="datetime" Nullable="false" />
+          <Property Name="Todate" Type="datetime" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="Createuser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Bills">
+          <Key>
+            <PropertyRef Name="RecordId" />
+            <PropertyRef Name="Memoryid" />
+          </Key>
+          <Property Name="RecordId" Type="int" Nullable="false" />
+          <Property Name="Memoryid" Type="bigint" Nullable="false" />
+          <Property Name="Memorycard" Type="varchar" MaxLength="50" />
+          <Property Name="Customerid" Type="int" />
+          <Property Name="Customername" Type="varchar" MaxLength="50" />
+          <Property Name="Shortname" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Ispay" Type="bit" />
+          <Property Name="Scustomerid" Type="varchar" MaxLength="20" />
+          <Property Name="Scustomername" Type="varchar" MaxLength="50" />
+          <Property Name="ProId" Type="int" />
+          <Property Name="Proname" Type="varchar" MaxLength="100" />
+          <Property Name="Startweight" Type="decimal" Scale="3" />
+          <Property Name="Endweight" Type="decimal" Scale="3" />
+          <Property Name="Inweight" Type="decimal" Scale="3" />
+          <Property Name="Outweight" Type="decimal" Scale="3" />
+          <Property Name="Stockindate" Type="datetime" />
+          <Property Name="Startdate" Type="datetime" />
+          <Property Name="Endate" Type="datetime" />
+          <Property Name="Enddays" Type="int" Nullable="false" />
+          <Property Name="Rate" Type="decimal" Scale="6" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+          <Property Name="Createuser" Type="varchar" MaxLength="50" />
+          <Property Name="Createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Buttons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="About" Type="nvarchar" MaxLength="30" />
+          <Property Name="SysController" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="SysAction" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="MenuId" Type="int" Nullable="false" />
+          <Property Name="Icon" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Charge">
+          <Key>
+            <PropertyRef Name="ChargeId" />
+          </Key>
+          <Property Name="ChargeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Price" Type="decimal" Scale="2" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Amount" Type="decimal" Scale="2" />
+        </EntityType>
+        <EntityType Name="ContractRates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Conid" Type="int" Nullable="false" />
+          <Property Name="Manualno" Type="nvarchar" MaxLength="20" />
+          <Property Name="Proid" Type="int" Nullable="false" />
+          <Property Name="Rjdj" Type="decimal" Scale="2" />
+          <Property Name="Rjrgsj" Type="decimal" Scale="2" />
+          <Property Name="Rjtlzxlf" Type="decimal" Scale="2" />
+          <Property Name="Rjsz" Type="decimal" Scale="2" />
+          <Property Name="Rtrkysf" Type="decimal" Scale="2" />
+          <Property Name="Rtrgsj" Type="decimal" Scale="2" />
+          <Property Name="Rttlgyf" Type="decimal" Scale="2" />
+          <Property Name="Rtdbf" Type="decimal" Scale="2" />
+          <Property Name="Rgrkjyf" Type="decimal" Scale="2" />
+          <Property Name="Rgrgsj" Type="decimal" Scale="2" />
+          <Property Name="Rgdbf" Type="decimal" Scale="2" />
+          <Property Name="Rjzxrkysf" Type="decimal" Scale="2" />
+          <Property Name="Rjzxrgsj" Type="decimal" Scale="2" />
+          <Property Name="Rjzxtxf" Type="decimal" Scale="2" />
+          <Property Name="Rjzxdbf" Type="decimal" Scale="2" />
+          <Property Name="Rjzxdbstart" Type="decimal" Scale="2" />
+          <Property Name="Rjzxdbend" Type="decimal" Scale="2" />
+          <Property Name="Cckf" Type="decimal" Scale="2" />
+          <Property Name="Cchc" Type="decimal" Scale="2" />
+          <Property Name="Ccrkmfqstart" Type="decimal" Scale="2" />
+          <Property Name="Ccrkmfqend" Type="decimal" Scale="2" />
+          <Property Name="Ccrkmfqday" Type="int" />
+          <Property Name="Ccykf" Type="decimal" Scale="2" />
+          <Property Name="Ccyhc" Type="decimal" Scale="2" />
+          <Property Name="Ckqc" Type="decimal" Scale="2" />
+          <Property Name="Ckjjr" Type="decimal" Scale="2" />
+          <Property Name="Ghf" Type="decimal" Scale="2" />
+          <Property Name="Fjf" Type="decimal" Scale="2" />
+          <Property Name="Sjts" Type="decimal" Scale="2" />
+          <Property Name="Sjtp" Type="decimal" Scale="2" />
+          <Property Name="Sjsg" Type="decimal" Scale="2" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Manualno" Type="nvarchar" MaxLength="20" />
+          <Property Name="Customerid" Type="int" />
+          <Property Name="Mncode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Israilway" Type="bit" />
+          <Property Name="Ishighway" Type="bit" Nullable="false" />
+          <Property Name="Iscontainer" Type="bit" Nullable="false" />
+          <Property Name="Isexpire" Type="bit" Nullable="false" />
+          <Property Name="Settday" Type="int" />
+          <Property Name="Delaycost" Type="decimal" Scale="2" />
+          <Property Name="Startime" Type="datetime" />
+          <Property Name="Endtime" Type="datetime" />
+          <Property Name="Demoid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerGroup">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="Groupid" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="Groupid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShortName" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="MnCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phones" Type="nvarchar" MaxLength="25" />
+          <Property Name="Contract" Type="nvarchar" MaxLength="20" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="PostCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="400" />
+          <Property Name="Manualno" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fexs" Type="nvarchar" MaxLength="20" />
+          <Property Name="Banks" Type="nvarchar" MaxLength="500" />
+          <Property Name="Account" Type="nvarchar" MaxLength="20" />
+          <Property Name="Mobiles" Type="nvarchar" MaxLength="50" />
+          <Property Name="Emails" Type="nvarchar" MaxLength="255" />
+          <Property Name="Idcard" Type="nvarchar" MaxLength="20" />
+          <Property Name="Trade" Type="bit" Nullable="false" />
+          <Property Name="Sign" Type="bit" Nullable="false" />
+          <Property Name="Isbatch" Type="bit" Nullable="false" />
+          <Property Name="LastExport" Type="datetime" />
+          <Property Name="Ispay" Type="bit" Nullable="false" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="30" />
+          <Property Name="DeptDescription" Type="nvarchar" MaxLength="200" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Groupid" />
+          </Key>
+          <Property Name="Groupid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Groupname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="nchar" Nullable="false" MaxLength="1" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginUsers">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserPassword" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="13" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="13" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="QQ" Type="nvarchar" MaxLength="13" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="bit" Nullable="false" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Memorycards">
+          <Key>
+            <PropertyRef Name="Memoryid" />
+          </Key>
+          <Property Name="Memoryid" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Memorycard" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Stockinid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Smanualno" Type="nvarchar" MaxLength="20" />
+          <Property Name="Recargoid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Manualno" Type="nvarchar" MaxLength="20" />
+          <Property Name="Customerid" Type="int" />
+          <Property Name="Customername" Type="nvarchar" MaxLength="50" />
+          <Property Name="Conid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Mncode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Arrivalwayid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Arrivalwayname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Carno" Type="nvarchar" MaxLength="50" />
+          <Property Name="Acceptanceid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Acceptance" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Contactor" Type="nvarchar" MaxLength="20" />
+          <Property Name="Proid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Proname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Brandname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Moname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Maname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Baname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Hottoys" Type="int" />
+          <Property Name="Qunit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Wunit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Scurinrpieces" Type="int" />
+          <Property Name="ScurinWeight" Type="decimal" Scale="2" />
+          <Property Name="Scuroutrpieces" Type="int" />
+          <Property Name="ScuroutWeight" Type="decimal" Scale="2" />
+          <Property Name="Srpieces" Type="int" />
+          <Property Name="Sweight" Type="decimal" Scale="2" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" />
+          <Property Name="Supplyunit" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Isallstockin" Type="bit" />
+          <Property Name="Scustomerid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Scustomername" Type="nvarchar" MaxLength="50" />
+          <Property Name="Stockindate" Type="datetime" />
+          <Property Name="Sourceorder" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayName" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="DisplayIcon" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="MenuNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="Sort" Type="int" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="2" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperateLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProcessName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProcessDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="MethodName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="MethodDesc" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProductBatchs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Proid" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductBrands">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Proid" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductMaterials">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Proid" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductModules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Proid" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Proname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Mncode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Warranty" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Racks">
+          <Key>
+            <PropertyRef Name="Rackid" />
+          </Key>
+          <Property Name="Rackid" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Rackname" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Racktype" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rerackid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleButton">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="ButtonId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="ButtonId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleMenu">
+          <Key>
+            <PropertyRef Name="RoleId" />
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="MenuId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StockDetails">
+          <Key>
+            <PropertyRef Name="Did" />
+            <PropertyRef Name="Buttressno" />
+            <PropertyRef Name="Detailseqno" />
+          </Key>
+          <Property Name="Did" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Buttressno" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Detailseqno" Type="int" Nullable="false" />
+          <Property Name="Memoryid" Type="bigint" Nullable="false" />
+          <Property Name="Memorycard" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Floors" Type="nvarchar" MaxLength="20" />
+          <Property Name="Unit" Type="int" />
+          <Property Name="Hottoys" Type="int" />
+          <Property Name="Curinrpieces" Type="int" />
+          <Property Name="CurinWeight" Type="decimal" Scale="2" />
+          <Property Name="Curoutrpieces" Type="int" />
+          <Property Name="CuroutWeight" Type="decimal" Scale="2" />
+          <Property Name="Rpieces" Type="int" />
+          <Property Name="Weight" Type="decimal" Scale="2" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" />
+          <Property Name="Ispacklist" Type="bit" />
+          <Property Name="Isbuttressall" Type="int" />
+        </EntityType>
+        <EntityType Name="StockMoves">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Did" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Memoryid" Type="bigint" Nullable="false" />
+          <Property Name="Memorycard" Type="nvarchar" MaxLength="50" />
+          <Property Name="Stockno" Type="nvarchar" MaxLength="20" />
+          <Property Name="Stocktype" Type="int" />
+          <Property Name="Customerid" Type="int" Nullable="false" />
+          <Property Name="Customername" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mncode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Proid" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Proname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Brandname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Moname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Maname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Baname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Hottoys" Type="int" />
+          <Property Name="Qunit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Wunit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Curinrpieces" Type="int" />
+          <Property Name="CurinWeight" Type="decimal" Scale="6" />
+          <Property Name="Curoutrpieces" Type="int" />
+          <Property Name="CuroutWeight" Type="decimal" Scale="6" />
+          <Property Name="Rpieces" Type="int" />
+          <Property Name="Weight" Type="decimal" Scale="6" />
+          <Property Name="Yrackid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Yrackname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Erackid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Erackname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sackid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Sackname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="Txdate" Type="datetime" Nullable="false" />
+          <Property Name="Manualno" Type="nvarchar" MaxLength="20" />
+          <Property Name="Recordid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Createuser" Type="nvarchar" MaxLength="12" />
+          <Property Name="Createtime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Stocks">
+          <Key>
+            <PropertyRef Name="Did" />
+          </Key>
+          <Property Name="Did" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Memoryid" Type="bigint" />
+          <Property Name="Memorycard" Type="nvarchar" MaxLength="50" />
+          <Property Name="Stockinid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Smanualno" Type="nvarchar" MaxLength="20" />
+          <Property Name="Recargoid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Manualno" Type="nvarchar" MaxLength="20" />
+          <Property Name="Customerid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Customername" Type="nvarchar" MaxLength="50" />
+          <Property Name="Conid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Mncode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Proid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Proname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Brandname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Moname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Maname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Baname" Type="nvarchar" MaxLength="100" />
+          <Property Name="Hottoys" Type="int" />
+          <Property Name="Qunit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Wunit" Type="nvarchar" MaxLength="100" />
+          <Property Name="Curinrpieces" Type="int" />
+          <Property Name="CurinWeight" Type="decimal" Scale="2" />
+          <Property Name="Curoutrpieces" Type="int" />
+          <Property Name="CuroutWeight" Type="decimal" Scale="2" />
+          <Property Name="Rpieces" Type="int" />
+          <Property Name="Weight" Type="decimal" Scale="2" />
+          <Property Name="Yrackid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Yrackname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Erackid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Erackname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sackid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Sackname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Carno" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Contactor" Type="nvarchar" MaxLength="20" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" MaxLength="2" />
+          <Property Name="Stockintime" Type="datetime" />
+          <Property Name="Createuser" Type="nvarchar" MaxLength="12" />
+          <Property Name="Createtime" Type="datetime" />
+          <Property Name="Modifyuser" Type="nvarchar" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" />
+          <Property Name="Ishavedet" Type="int" />
+          <Property Name="Acceptanceid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Acceptance" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sourcedid" Type="nvarchar" MaxLength="20" />
+          <Property Name="Origdid" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Stores">
+          <Key>
+            <PropertyRef Name="Storeid" />
+          </Key>
+          <Property Name="Storeid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Names" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Shortname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mncode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Principals" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Phones" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Mobiles" Type="nvarchar" MaxLength="20" />
+          <Property Name="Totalarea" Type="decimal" Scale="2" />
+          <Property Name="Indoorarea" Type="decimal" Scale="2" />
+          <Property Name="Outdoorarea" Type="decimal" Scale="2" />
+          <Property Name="Restoreid" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VenueStaffs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Contactor" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Idcard" Type="nvarchar" MaxLength="20" />
+          <Property Name="Sexs" Type="bit" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+          <Property Name="Birthdate" Type="datetime" />
+          <Property Name="Jobsid" Type="int" Nullable="false" />
+          <Property Name="Storeid" Type="int" Nullable="false" />
+          <Property Name="Storein" Type="decimal" Scale="2" />
+          <Property Name="Storeout" Type="decimal" Scale="2" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="255" />
+          <Property Name="Status" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Modifyuser" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Modifytime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BillDetails_Customers">
+          <End Role="Customers" Type="LogisticsModel.Store.Customers" Multiplicity="1" />
+          <End Role="BillDetails" Type="LogisticsModel.Store.BillDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="BillDetails">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillDetails_Memorycard">
+          <End Role="Memorycards" Type="LogisticsModel.Store.Memorycards" Multiplicity="1" />
+          <End Role="BillDetails" Type="LogisticsModel.Store.BillDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Memorycards">
+              <PropertyRef Name="Memoryid" />
+            </Principal>
+            <Dependent Role="BillDetails">
+              <PropertyRef Name="Memoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillDetails_Record">
+          <End Role="BillRecords" Type="LogisticsModel.Store.BillRecords" Multiplicity="1" />
+          <End Role="BillDetails" Type="LogisticsModel.Store.BillDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillRecords">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillDetails">
+              <PropertyRef Name="Recordid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bills_Customer">
+          <End Role="Customers" Type="LogisticsModel.Store.Customers" Multiplicity="0..1" />
+          <End Role="Bills" Type="LogisticsModel.Store.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bills_Record">
+          <End Role="BillRecords" Type="LogisticsModel.Store.BillRecords" Multiplicity="1" />
+          <End Role="Bills" Type="LogisticsModel.Store.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillRecords">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="RecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractRates_Contracts_Conid">
+          <End Role="Contracts" Type="LogisticsModel.Store.Contracts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContractRates" Type="LogisticsModel.Store.ContractRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractRates">
+              <PropertyRef Name="Conid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractRates_Products_Proid">
+          <End Role="Products" Type="LogisticsModel.Store.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ContractRates" Type="LogisticsModel.Store.ContractRates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractRates">
+              <PropertyRef Name="Proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contracts_Customers_Customerid">
+          <End Role="Customers" Type="LogisticsModel.Store.Customers" Multiplicity="0..1" />
+          <End Role="Contracts" Type="LogisticsModel.Store.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="Customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerGroup_Customers_CustomerId">
+          <End Role="Customers" Type="LogisticsModel.Store.Customers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CustomerGroup" Type="LogisticsModel.Store.CustomerGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CustomerGroup">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerGroup_Groups_Groupid">
+          <End Role="Groups" Type="LogisticsModel.Store.Groups" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CustomerGroup" Type="LogisticsModel.Store.CustomerGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Groupid" />
+            </Principal>
+            <Dependent Role="CustomerGroup">
+              <PropertyRef Name="Groupid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Memorycards_Customer">
+          <End Role="Customers" Type="LogisticsModel.Store.Customers" Multiplicity="0..1" />
+          <End Role="Memorycards" Type="LogisticsModel.Store.Memorycards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Memorycards">
+              <PropertyRef Name="Customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menus_Menus">
+          <End Role="Menus" Type="LogisticsModel.Store.Menus" Multiplicity="0..1" />
+          <End Role="Menus1" Type="LogisticsModel.Store.Menus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menus1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductBatchs_Products_Proid">
+          <End Role="Products" Type="LogisticsModel.Store.Products" Multiplicity="0..1" />
+          <End Role="ProductBatchs" Type="LogisticsModel.Store.ProductBatchs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductBatchs">
+              <PropertyRef Name="Proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductMaterials_Products_Proid">
+          <End Role="Products" Type="LogisticsModel.Store.Products" Multiplicity="0..1" />
+          <End Role="ProductMaterials" Type="LogisticsModel.Store.ProductMaterials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductMaterials">
+              <PropertyRef Name="Proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModules_Products_Proid">
+          <End Role="Products" Type="LogisticsModel.Store.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductModules" Type="LogisticsModel.Store.ProductModules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductModules">
+              <PropertyRef Name="Proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Racks_Racks_Rerackid">
+          <End Role="Racks" Type="LogisticsModel.Store.Racks" Multiplicity="0..1" />
+          <End Role="Racks1" Type="LogisticsModel.Store.Racks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Racks">
+              <PropertyRef Name="Rackid" />
+            </Principal>
+            <Dependent Role="Racks1">
+              <PropertyRef Name="Rerackid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleButton_Buttons_ButtonId">
+          <End Role="Buttons" Type="LogisticsModel.Store.Buttons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RoleButton" Type="LogisticsModel.Store.RoleButton" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buttons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleButton">
+              <PropertyRef Name="ButtonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleButton_Roles_RoleId">
+          <End Role="Roles" Type="LogisticsModel.Store.Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RoleButton" Type="LogisticsModel.Store.RoleButton" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleButton">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleMenu_Menus_MenuId">
+          <End Role="Menus" Type="LogisticsModel.Store.Menus" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RoleMenu" Type="LogisticsModel.Store.RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleMenu">
+              <PropertyRef Name="MenuId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleMenu_Roles_RoleId">
+          <End Role="Roles" Type="LogisticsModel.Store.Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RoleMenu" Type="LogisticsModel.Store.RoleMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleMenu">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockMoves_Customers">
+          <End Role="Customers" Type="LogisticsModel.Store.Customers" Multiplicity="1" />
+          <End Role="StockMoves" Type="LogisticsModel.Store.StockMoves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="StockMoves">
+              <PropertyRef Name="Customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stores_Stores_Restoreid">
+          <End Role="Stores" Type="LogisticsModel.Store.Stores" Multiplicity="0..1" />
+          <End Role="Stores1" Type="LogisticsModel.Store.Stores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stores">
+              <PropertyRef Name="Storeid" />
+            </Principal>
+            <Dependent Role="Stores1">
+              <PropertyRef Name="Restoreid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles_RoleId">
+          <End Role="Roles" Type="LogisticsModel.Store.Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LoginUsers" Type="LogisticsModel.Store.LoginUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoginUsers">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LogisticsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="LogisticsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BillDetails" EntityType="LogisticsModel.BillDetail" />
+          <EntitySet Name="BillRecords" EntityType="LogisticsModel.BillRecord" />
+          <AssociationSet Name="FK_BillDetails_Record" Association="LogisticsModel.FK_BillDetails_Record">
+            <End Role="BillRecords" EntitySet="BillRecords" />
+            <End Role="BillDetails" EntitySet="BillDetails" />
+          </AssociationSet>
+          <EntitySet Name="Bills" EntityType="LogisticsModel.Bill" />
+          <EntitySet Name="Buttons" EntityType="LogisticsModel.Button" />
+          <EntitySet Name="Charges" EntityType="LogisticsModel.Charge" />
+          <EntitySet Name="ContractRates" EntityType="LogisticsModel.ContractRate" />
+          <EntitySet Name="Contracts" EntityType="LogisticsModel.Contract" />
+          <EntitySet Name="Customers" EntityType="LogisticsModel.Customer" />
+          <EntitySet Name="Departments" EntityType="LogisticsModel.Department" />
+          <EntitySet Name="Groups" EntityType="LogisticsModel.Group" />
+          <EntitySet Name="Jobs" EntityType="LogisticsModel.Job" />
+          <EntitySet Name="Memorycards" EntityType="LogisticsModel.Memorycard" />
+          <EntitySet Name="Menus" EntityType="LogisticsModel.Menu" />
+          <EntitySet Name="OperateLogs" EntityType="LogisticsModel.OperateLog" />
+          <EntitySet Name="ProductBatchs" EntityType="LogisticsModel.ProductBatch" />
+          <EntitySet Name="ProductBrands" EntityType="LogisticsModel.ProductBrand" />
+          <EntitySet Name="ProductMaterials" EntityType="LogisticsModel.ProductMaterial" />
+          <EntitySet Name="ProductModules" EntityType="LogisticsModel.ProductModule" />
+          <EntitySet Name="Products" EntityType="LogisticsModel.Product" />
+          <EntitySet Name="Racks" EntityType="LogisticsModel.Rack" />
+          <EntitySet Name="Roles" EntityType="LogisticsModel.Role" />
+          <EntitySet Name="StockDetails" EntityType="LogisticsModel.StockDetail" />
+          <EntitySet Name="StockMoves" EntityType="LogisticsModel.StockMove" />
+          <EntitySet Name="Stocks" EntityType="LogisticsModel.Stock" />
+          <EntitySet Name="Stores" EntityType="LogisticsModel.Store" />
+          <EntitySet Name="VenueStaffs" EntityType="LogisticsModel.VenueStaff" />
+          <AssociationSet Name="FK_BillDetails_Customers" Association="LogisticsModel.FK_BillDetails_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillDetails_Memorycard" Association="LogisticsModel.FK_BillDetails_Memorycard">
+            <End Role="Memorycard" EntitySet="Memorycards" />
+            <End Role="BillDetail" EntitySet="BillDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bills_Record" Association="LogisticsModel.FK_Bills_Record">
+            <End Role="BillRecord" EntitySet="BillRecords" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bills_Customer" Association="LogisticsModel.FK_Bills_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Bill" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractRates_Contracts_Conid" Association="LogisticsModel.FK_ContractRates_Contracts_Conid">
+            <End Role="Contract" EntitySet="Contracts" />
+            <End Role="ContractRate" EntitySet="ContractRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractRates_Products_Proid" Association="LogisticsModel.FK_ContractRates_Products_Proid">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ContractRate" EntitySet="ContractRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Customers_Customerid" Association="LogisticsModel.FK_Contracts_Customers_Customerid">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Memorycards_Customer" Association="LogisticsModel.FK_Memorycards_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Memorycard" EntitySet="Memorycards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StockMoves_Customers" Association="LogisticsModel.FK_StockMoves_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="StockMove" EntitySet="StockMoves" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Menus_Menus" Association="LogisticsModel.FK_Menus_Menus">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="Menu1" EntitySet="Menus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductBatchs_Products_Proid" Association="LogisticsModel.FK_ProductBatchs_Products_Proid">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductBatch" EntitySet="ProductBatchs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductMaterials_Products_Proid" Association="LogisticsModel.FK_ProductMaterials_Products_Proid">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductMaterial" EntitySet="ProductMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductModules_Products_Proid" Association="LogisticsModel.FK_ProductModules_Products_Proid">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductModule" EntitySet="ProductModules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Racks_Racks_Rerackid" Association="LogisticsModel.FK_Racks_Racks_Rerackid">
+            <End Role="Rack" EntitySet="Racks" />
+            <End Role="Rack1" EntitySet="Racks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stores_Stores_Restoreid" Association="LogisticsModel.FK_Stores_Stores_Restoreid">
+            <End Role="Store" EntitySet="Stores" />
+            <End Role="Store1" EntitySet="Stores" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerGroup" Association="LogisticsModel.CustomerGroup">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="RoleButton" Association="LogisticsModel.RoleButton">
+            <End Role="Button" EntitySet="Buttons" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="RoleMenu" Association="LogisticsModel.RoleMenu">
+            <End Role="Menu" EntitySet="Menus" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <EntitySet Name="LoginUsers" EntityType="LogisticsModel.LoginUser" />
+          <AssociationSet Name="FK_Users_Roles_RoleId" Association="LogisticsModel.FK_Users_Roles_RoleId">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="LoginUser" EntitySet="LoginUsers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BillDetail">
+          <Key>
+            <PropertyRef Name="Bid" />
+          </Key>
+          <Property Name="Bid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Recordid" Type="Int32" Nullable="false" />
+          <Property Name="Memoryid" Type="Int64" Nullable="false" />
+          <Property Name="Memorycard" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="Itemtime" Type="DateTime" />
+          <Property Name="Subject" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Inweight" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Outweight" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Sweight" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Rate" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Days" Type="Int32" />
+          <Property Name="Computation" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Storefee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Createuser" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Createtime" Type="DateTime" />
+          <NavigationProperty Name="BillRecord" Relationship="LogisticsModel.FK_BillDetails_Record" FromRole="BillDetails" ToRole="BillRecords" />
+          <NavigationProperty Name="Customer" Relationship="LogisticsModel.FK_BillDetails_Customers" FromRole="BillDetail" ToRole="Customer" />
+          <NavigationProperty Name="Memorycard1" Relationship="LogisticsModel.FK_BillDetails_Memorycard" FromRole="BillDetail" ToRole="Memorycard" />
+        </EntityType>
+        <EntityType Name="BillRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fromdate" Type="DateTime" Nullable="false" />
+          <Property Name="Todate" Type="DateTime" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Createuser" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Createtime" Type="DateTime" />
+          <NavigationProperty Name="BillDetails" Relationship="LogisticsModel.FK_BillDetails_Record" FromRole="BillRecords" ToRole="BillDetails" />
+          <NavigationProperty Name="Bills" Relationship="LogisticsModel.FK_Bills_Record" FromRole="BillRecord" ToRole="Bill" />
+        </EntityType>
+        <Association Name="FK_BillDetails_Record">
+          <End Role="BillRecords" Type="LogisticsModel.BillRecord" Multiplicity="1" />
+          <End Role="BillDetails" Type="LogisticsModel.BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillRecords">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BillDetails">
+              <PropertyRef Name="Recordid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="RecordId" />
+            <PropertyRef Name="Memoryid" />
+          </Key>
+          <Property Type="Int32" Name="RecordId" Nullable="false" />
+          <Property Type="Int64" Name="Memoryid" Nullable="false" />
+          <Property Type="String" Name="Memorycard" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Customerid" />
+          <Property Type="String" Name="Customername" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Shortname" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Ispay" />
+          <Property Type="String" Name="Scustomerid" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Scustomername" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ProId" />
+          <Property Type="String" Name="Proname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Startweight" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="Endweight" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="Inweight" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="Outweight" Precision="18" Scale="3" />
+          <Property Type="DateTime" Name="Stockindate" />
+          <Property Type="DateTime" Name="Startdate" />
+          <Property Type="DateTime" Name="Endate" />
+          <Property Type="Int32" Name="Enddays" Nullable="false" />
+          <Property Type="Decimal" Name="Rate" Precision="18" Scale="6" />
+          <Property Type="String" Name="Status" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Createuser" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Createtime" />
+          <NavigationProperty Name="BillRecord" Relationship="LogisticsModel.FK_Bills_Record" FromRole="Bill" ToRole="BillRecord" />
+          <NavigationProperty Name="Customer" Relationship="LogisticsModel.FK_Bills_Customer" FromRole="Bill" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Button">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="About" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SysController" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SysAction" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Sort" Nullable="false" />
+          <Property Type="Int32" Name="MenuId" Nullable="false" />
+          <Property Type="String" Name="Icon" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="Roles" Relationship="LogisticsModel.RoleButton" FromRole="Button" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Charge">
+          <Key>
+            <PropertyRef Name="ChargeId" />
+          </Key>
+          <Property Type="Int32" Name="ChargeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Type" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Price" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="Date" />
+          <Property Type="Decimal" Name="Amount" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="ContractRate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Conid" Nullable="false" />
+          <Property Type="String" Name="Manualno" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Proid" Nullable="false" />
+          <Property Type="Decimal" Name="Rjdj" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rjrgsj" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rjtlzxlf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rjsz" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rtrkysf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rtrgsj" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rttlgyf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rtdbf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rgrkjyf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rgrgsj" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rgdbf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rjzxrkysf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rjzxrgsj" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rjzxtxf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rjzxdbf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rjzxdbstart" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Rjzxdbend" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Cckf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Cchc" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Ccrkmfqstart" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Ccrkmfqend" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Ccrkmfqday" />
+          <Property Type="Decimal" Name="Ccykf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Ccyhc" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Ckqc" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Ckjjr" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Ghf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Fjf" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Sjts" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Sjtp" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Sjsg" Precision="18" Scale="2" />
+          <Property Type="String" Name="Status" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" />
+          <NavigationProperty Name="Contract" Relationship="LogisticsModel.FK_ContractRates_Contracts_Conid" FromRole="ContractRate" ToRole="Contract" />
+          <NavigationProperty Name="Product" Relationship="LogisticsModel.FK_ContractRates_Products_Proid" FromRole="ContractRate" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Manualno" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Customerid" />
+          <Property Type="String" Name="Mncode" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Israilway" />
+          <Property Type="Boolean" Name="Ishighway" Nullable="false" />
+          <Property Type="Boolean" Name="Iscontainer" Nullable="false" />
+          <Property Type="Boolean" Name="Isexpire" Nullable="false" />
+          <Property Type="Int32" Name="Settday" />
+          <Property Type="Decimal" Name="Delaycost" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="Startime" />
+          <Property Type="DateTime" Name="Endtime" />
+          <Property Type="String" Name="Demoid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="ContractRates" Relationship="LogisticsModel.FK_ContractRates_Contracts_Conid" FromRole="Contract" ToRole="ContractRate" />
+          <NavigationProperty Name="Customer" Relationship="LogisticsModel.FK_Contracts_Customers_Customerid" FromRole="Contract" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Type="Int32" Name="CustomerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShortName" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MnCode" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phones" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contract" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostCode" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remarks" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Manualno" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Fexs" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Banks" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Account" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mobiles" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Emails" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Idcard" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Trade" Nullable="false" />
+          <Property Type="Boolean" Name="Sign" Nullable="false" />
+          <Property Type="Boolean" Name="Isbatch" Nullable="false" />
+          <Property Type="DateTime" Name="LastExport" />
+          <Property Type="Boolean" Name="Ispay" Nullable="false" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="BillDetails" Relationship="LogisticsModel.FK_BillDetails_Customers" FromRole="Customer" ToRole="BillDetail" />
+          <NavigationProperty Name="Bills" Relationship="LogisticsModel.FK_Bills_Customer" FromRole="Customer" ToRole="Bill" />
+          <NavigationProperty Name="Contracts" Relationship="LogisticsModel.FK_Contracts_Customers_Customerid" FromRole="Customer" ToRole="Contract" />
+          <NavigationProperty Name="Memorycards" Relationship="LogisticsModel.FK_Memorycards_Customer" FromRole="Customer" ToRole="Memorycard" />
+          <NavigationProperty Name="StockMoves" Relationship="LogisticsModel.FK_StockMoves_Customers" FromRole="Customer" ToRole="StockMove" />
+          <NavigationProperty Name="Groups" Relationship="LogisticsModel.CustomerGroup" FromRole="Customer" ToRole="Group" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DeptName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DeptDescription" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentID" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Groupid" />
+          </Key>
+          <Property Type="Int32" Name="Groupid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Groupname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="LogisticsModel.CustomerGroup" FromRole="Group" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Memorycard">
+          <Key>
+            <PropertyRef Name="Memoryid" />
+          </Key>
+          <Property Type="Int64" Name="Memoryid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MemorycardName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Stockinid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Smanualno" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recargoid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Manualno" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Customerid" />
+          <Property Type="String" Name="Customername" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Conid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mncode" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Arrivalwayid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Arrivalwayname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Carno" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Acceptanceid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Acceptance" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contactor" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Proid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Proname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Brandname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Moname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Maname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Baname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Hottoys" />
+          <Property Type="String" Name="Qunit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Wunit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Scurinrpieces" />
+          <Property Type="Decimal" Name="ScurinWeight" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Scuroutrpieces" />
+          <Property Type="Decimal" Name="ScuroutWeight" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Srpieces" />
+          <Property Type="Decimal" Name="Sweight" Precision="18" Scale="2" />
+          <Property Type="String" Name="Status" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" />
+          <Property Type="String" Name="Supplyunit" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Isallstockin" />
+          <Property Type="String" Name="Scustomerid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Scustomername" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Stockindate" />
+          <Property Type="String" Name="Sourceorder" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BillDetails" Relationship="LogisticsModel.FK_BillDetails_Memorycard" FromRole="Memorycard" ToRole="BillDetail" />
+          <NavigationProperty Name="Customer" Relationship="LogisticsModel.FK_Memorycards_Customer" FromRole="Memorycard" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DisplayName" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DisplayIcon" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MenuNo" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ParentId" />
+          <Property Type="Int32" Name="Sort" Nullable="false" />
+          <Property Type="String" Name="Status" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="ChildMenus" Relationship="LogisticsModel.FK_Menus_Menus" FromRole="Menu" ToRole="Menu1" />
+          <NavigationProperty Name="Menu1" Relationship="LogisticsModel.FK_Menus_Menus" FromRole="Menu1" ToRole="Menu" />
+          <NavigationProperty Name="Roles" Relationship="LogisticsModel.RoleMenu" FromRole="Menu" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="OperateLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int64" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ProcessName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProcessDesc" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MethodName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UserID" />
+          <Property Type="String" Name="UserName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IPAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="String" Name="MethodDesc" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProductBatch">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Proid" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="LogisticsModel.FK_ProductBatchs_Products_Proid" FromRole="ProductBatch" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductBrand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Proid" Nullable="false" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductMaterial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Proid" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="LogisticsModel.FK_ProductMaterials_Products_Proid" FromRole="ProductMaterial" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductModule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Proid" Nullable="false" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="LogisticsModel.FK_ProductModules_Products_Proid" FromRole="ProductModule" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Proname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Count" />
+          <Property Type="String" Name="Mncode" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Warranty" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="ContractRates" Relationship="LogisticsModel.FK_ContractRates_Products_Proid" FromRole="Product" ToRole="ContractRate" />
+          <NavigationProperty Name="ProductBatchs" Relationship="LogisticsModel.FK_ProductBatchs_Products_Proid" FromRole="Product" ToRole="ProductBatch" />
+          <NavigationProperty Name="ProductMaterials" Relationship="LogisticsModel.FK_ProductMaterials_Products_Proid" FromRole="Product" ToRole="ProductMaterial" />
+          <NavigationProperty Name="ProductModules" Relationship="LogisticsModel.FK_ProductModules_Products_Proid" FromRole="Product" ToRole="ProductModule" />
+        </EntityType>
+        <EntityType Name="Rack">
+          <Key>
+            <PropertyRef Name="Rackid" />
+          </Key>
+          <Property Type="String" Name="Rackid" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Rackname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Racktype" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Rerackid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="Racks1" Relationship="LogisticsModel.FK_Racks_Racks_Rerackid" FromRole="Rack" ToRole="Rack1" />
+          <NavigationProperty Name="Rack1" Relationship="LogisticsModel.FK_Racks_Racks_Rerackid" FromRole="Rack1" ToRole="Rack" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RoleName" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Sort" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="Buttons" Relationship="LogisticsModel.RoleButton" FromRole="Role" ToRole="Button" />
+          <NavigationProperty Name="Menus" Relationship="LogisticsModel.RoleMenu" FromRole="Role" ToRole="Menu" />
+          <NavigationProperty Name="LoginUsers" Relationship="LogisticsModel.FK_Users_Roles_RoleId" FromRole="Role" ToRole="LoginUser" />
+        </EntityType>
+        <EntityType Name="StockDetail">
+          <Key>
+            <PropertyRef Name="Did" />
+            <PropertyRef Name="Buttressno" />
+            <PropertyRef Name="Detailseqno" />
+          </Key>
+          <Property Type="String" Name="Did" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Buttressno" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Detailseqno" Nullable="false" />
+          <Property Type="Int64" Name="Memoryid" Nullable="false" />
+          <Property Type="String" Name="Memorycard" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Floors" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Unit" />
+          <Property Type="Int32" Name="Hottoys" />
+          <Property Type="Int32" Name="Curinrpieces" />
+          <Property Type="Decimal" Name="CurinWeight" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Curoutrpieces" />
+          <Property Type="Decimal" Name="CuroutWeight" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Rpieces" />
+          <Property Type="Decimal" Name="Weight" Precision="18" Scale="2" />
+          <Property Type="String" Name="Status" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" />
+          <Property Type="Boolean" Name="Ispacklist" />
+          <Property Type="Int32" Name="Isbuttressall" />
+        </EntityType>
+        <EntityType Name="StockMove">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Did" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Memoryid" Nullable="false" />
+          <Property Type="String" Name="Memorycard" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Stockno" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Stocktype" />
+          <Property Type="Int32" Name="Customerid" Nullable="false" />
+          <Property Type="String" Name="Customername" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mncode" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Proid" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Proname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Brandname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Moname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Maname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Baname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Hottoys" />
+          <Property Type="String" Name="Qunit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Wunit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Curinrpieces" />
+          <Property Type="Decimal" Name="CurinWeight" Precision="18" Scale="6" />
+          <Property Type="Int32" Name="Curoutrpieces" />
+          <Property Type="Decimal" Name="CuroutWeight" Precision="18" Scale="6" />
+          <Property Type="Int32" Name="Rpieces" />
+          <Property Type="Decimal" Name="Weight" Precision="18" Scale="6" />
+          <Property Type="String" Name="Yrackid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Yrackname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Erackid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Erackname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sackid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sackname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Txdate" Nullable="false" />
+          <Property Type="String" Name="Manualno" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recordid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Createuser" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Createtime" />
+          <NavigationProperty Name="Customer" Relationship="LogisticsModel.FK_StockMoves_Customers" FromRole="StockMove" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="Did" />
+          </Key>
+          <Property Type="String" Name="Did" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Memoryid" />
+          <Property Type="String" Name="Memorycard" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Stockinid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Smanualno" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recargoid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Manualno" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Customerid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Customername" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Conid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mncode" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Proid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Proname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Brandname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Moname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Maname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Baname" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Hottoys" />
+          <Property Type="String" Name="Qunit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Wunit" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Curinrpieces" />
+          <Property Type="Decimal" Name="CurinWeight" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Curoutrpieces" />
+          <Property Type="Decimal" Name="CuroutWeight" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Rpieces" />
+          <Property Type="Decimal" Name="Weight" Precision="18" Scale="2" />
+          <Property Type="String" Name="Yrackid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Yrackname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Erackid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Erackname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sackid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sackname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Carno" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contactor" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Stockintime" />
+          <Property Type="String" Name="Createuser" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Createtime" />
+          <Property Type="String" Name="Modifyuser" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" />
+          <Property Type="Int32" Name="Ishavedet" />
+          <Property Type="String" Name="Acceptanceid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Acceptance" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Sourcedid" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Origdid" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Store">
+          <Key>
+            <PropertyRef Name="Storeid" />
+          </Key>
+          <Property Type="Int32" Name="Storeid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Names" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Shortname" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mncode" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Principals" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phones" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mobiles" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Totalarea" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Indoorarea" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Outdoorarea" Precision="18" Scale="2" />
+          <Property Type="Int32" Name="Restoreid" />
+          <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="Stores1" Relationship="LogisticsModel.FK_Stores_Stores_Restoreid" FromRole="Store" ToRole="Store1" />
+          <NavigationProperty Name="Store1" Relationship="LogisticsModel.FK_Stores_Stores_Restoreid" FromRole="Store1" ToRole="Store" />
+        </EntityType>
+        <EntityType Name="VenueStaff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Contactor" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Idcard" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Sexs" />
+          <Property Type="String" Name="Phone" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Birthdate" />
+          <Property Type="Int32" Name="Jobsid" Nullable="false" />
+          <Property Type="Int32" Name="Storeid" Nullable="false" />
+          <Property Type="Decimal" Name="Storein" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Storeout" Precision="18" Scale="2" />
+          <Property Type="String" Name="Remark" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BillDetails_Customers">
+          <End Type="LogisticsModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="LogisticsModel.BillDetail" Role="BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillDetails_Memorycard">
+          <End Type="LogisticsModel.Memorycard" Role="Memorycard" Multiplicity="1" />
+          <End Type="LogisticsModel.BillDetail" Role="BillDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Memorycard">
+              <PropertyRef Name="Memoryid" />
+            </Principal>
+            <Dependent Role="BillDetail">
+              <PropertyRef Name="Memoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bills_Record">
+          <End Type="LogisticsModel.BillRecord" Role="BillRecord" Multiplicity="1" />
+          <End Type="LogisticsModel.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillRecord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="RecordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bills_Customer">
+          <End Type="LogisticsModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="LogisticsModel.Bill" Role="Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Bill">
+              <PropertyRef Name="Customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractRates_Contracts_Conid">
+          <End Type="LogisticsModel.Contract" Role="Contract" Multiplicity="1" />
+          <End Type="LogisticsModel.ContractRate" Role="ContractRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contract">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractRate">
+              <PropertyRef Name="Conid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractRates_Products_Proid">
+          <End Type="LogisticsModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="LogisticsModel.ContractRate" Role="ContractRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContractRate">
+              <PropertyRef Name="Proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contracts_Customers_Customerid">
+          <End Type="LogisticsModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="LogisticsModel.Contract" Role="Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Memorycards_Customer">
+          <End Type="LogisticsModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="LogisticsModel.Memorycard" Role="Memorycard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Memorycard">
+              <PropertyRef Name="Customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StockMoves_Customers">
+          <End Type="LogisticsModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="LogisticsModel.StockMove" Role="StockMove" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="StockMove">
+              <PropertyRef Name="Customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Menus_Menus">
+          <End Type="LogisticsModel.Menu" Role="Menu" Multiplicity="0..1" />
+          <End Type="LogisticsModel.Menu" Role="Menu1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Menu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menu1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductBatchs_Products_Proid">
+          <End Type="LogisticsModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="LogisticsModel.ProductBatch" Role="ProductBatch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductBatch">
+              <PropertyRef Name="Proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductMaterials_Products_Proid">
+          <End Type="LogisticsModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="LogisticsModel.ProductMaterial" Role="ProductMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductMaterial">
+              <PropertyRef Name="Proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductModules_Products_Proid">
+          <End Type="LogisticsModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="LogisticsModel.ProductModule" Role="ProductModule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductModule">
+              <PropertyRef Name="Proid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Racks_Racks_Rerackid">
+          <End Type="LogisticsModel.Rack" Role="Rack" Multiplicity="0..1" />
+          <End Type="LogisticsModel.Rack" Role="Rack1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rack">
+              <PropertyRef Name="Rackid" />
+            </Principal>
+            <Dependent Role="Rack1">
+              <PropertyRef Name="Rerackid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stores_Stores_Restoreid">
+          <End Type="LogisticsModel.Store" Role="Store" Multiplicity="0..1" />
+          <End Type="LogisticsModel.Store" Role="Store1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Store">
+              <PropertyRef Name="Storeid" />
+            </Principal>
+            <Dependent Role="Store1">
+              <PropertyRef Name="Restoreid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerGroup">
+          <End Type="LogisticsModel.Customer" Role="Customer" Multiplicity="*" />
+          <End Type="LogisticsModel.Group" Role="Group" Multiplicity="*" />
+        </Association>
+        <Association Name="RoleButton">
+          <End Type="LogisticsModel.Button" Role="Button" Multiplicity="*" />
+          <End Type="LogisticsModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <Association Name="RoleMenu">
+          <End Type="LogisticsModel.Menu" Role="Menu" Multiplicity="*" />
+          <End Type="LogisticsModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="LoginUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="String" Name="UserId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UserPassword" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RoleId" Nullable="false" />
+          <Property Type="String" Name="Phone" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Fax" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="QQ" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NickName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RealName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Sex" Nullable="false" />
+          <Property Type="DateTime" Name="LastLoginTime" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Modifyuser" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Modifytime" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="LogisticsModel.FK_Users_Roles_RoleId" FromRole="LoginUser" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_Users_Roles_RoleId">
+          <End Type="LogisticsModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="LogisticsModel.LoginUser" Role="LoginUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LoginUser">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LogisticsModelStoreContainer" CdmEntityContainer="LogisticsEntities">
+          <EntitySetMapping Name="BillDetails"><EntityTypeMapping TypeName="LogisticsModel.BillDetail"><MappingFragment StoreEntitySet="BillDetails">
+            <ScalarProperty Name="Bid" ColumnName="Bid" />
+            <ScalarProperty Name="Recordid" ColumnName="Recordid" />
+            <ScalarProperty Name="Memoryid" ColumnName="Memoryid" />
+            <ScalarProperty Name="Memorycard" ColumnName="Memorycard" />
+            <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+            <ScalarProperty Name="Itemtime" ColumnName="Itemtime" />
+            <ScalarProperty Name="Subject" ColumnName="Subject" />
+            <ScalarProperty Name="Inweight" ColumnName="Inweight" />
+            <ScalarProperty Name="Outweight" ColumnName="Outweight" />
+            <ScalarProperty Name="Sweight" ColumnName="Sweight" />
+            <ScalarProperty Name="Rate" ColumnName="Rate" />
+            <ScalarProperty Name="Days" ColumnName="Days" />
+            <ScalarProperty Name="Computation" ColumnName="Computation" />
+            <ScalarProperty Name="Storefee" ColumnName="Storefee" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Createuser" ColumnName="Createuser" />
+            <ScalarProperty Name="Createtime" ColumnName="Createtime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="BillRecords"><EntityTypeMapping TypeName="LogisticsModel.BillRecord"><MappingFragment StoreEntitySet="BillRecords">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Fromdate" ColumnName="Fromdate" />
+            <ScalarProperty Name="Todate" ColumnName="Todate" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Createuser" ColumnName="Createuser" />
+            <ScalarProperty Name="Createtime" ColumnName="Createtime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="LogisticsModel.Bill">
+              <MappingFragment StoreEntitySet="Bills">
+                <ScalarProperty Name="Createtime" ColumnName="Createtime" />
+                <ScalarProperty Name="Createuser" ColumnName="Createuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Enddays" ColumnName="Enddays" />
+                <ScalarProperty Name="Endate" ColumnName="Endate" />
+                <ScalarProperty Name="Startdate" ColumnName="Startdate" />
+                <ScalarProperty Name="Stockindate" ColumnName="Stockindate" />
+                <ScalarProperty Name="Outweight" ColumnName="Outweight" />
+                <ScalarProperty Name="Inweight" ColumnName="Inweight" />
+                <ScalarProperty Name="Endweight" ColumnName="Endweight" />
+                <ScalarProperty Name="Startweight" ColumnName="Startweight" />
+                <ScalarProperty Name="Proname" ColumnName="Proname" />
+                <ScalarProperty Name="ProId" ColumnName="ProId" />
+                <ScalarProperty Name="Scustomername" ColumnName="Scustomername" />
+                <ScalarProperty Name="Scustomerid" ColumnName="Scustomerid" />
+                <ScalarProperty Name="Ispay" ColumnName="Ispay" />
+                <ScalarProperty Name="Shortname" ColumnName="Shortname" />
+                <ScalarProperty Name="Customername" ColumnName="Customername" />
+                <ScalarProperty Name="Customerid" ColumnName="Customerid" />
+                <ScalarProperty Name="Memorycard" ColumnName="Memorycard" />
+                <ScalarProperty Name="Memoryid" ColumnName="Memoryid" />
+                <ScalarProperty Name="RecordId" ColumnName="RecordId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buttons">
+            <EntityTypeMapping TypeName="LogisticsModel.Button">
+              <MappingFragment StoreEntitySet="Buttons">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="SysAction" ColumnName="SysAction" />
+                <ScalarProperty Name="SysController" ColumnName="SysController" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Charges">
+            <EntityTypeMapping TypeName="LogisticsModel.Charge">
+              <MappingFragment StoreEntitySet="Charge">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ChargeId" ColumnName="ChargeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractRates">
+            <EntityTypeMapping TypeName="LogisticsModel.ContractRate">
+              <MappingFragment StoreEntitySet="ContractRates">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sjsg" ColumnName="Sjsg" />
+                <ScalarProperty Name="Sjtp" ColumnName="Sjtp" />
+                <ScalarProperty Name="Sjts" ColumnName="Sjts" />
+                <ScalarProperty Name="Fjf" ColumnName="Fjf" />
+                <ScalarProperty Name="Ghf" ColumnName="Ghf" />
+                <ScalarProperty Name="Ckjjr" ColumnName="Ckjjr" />
+                <ScalarProperty Name="Ckqc" ColumnName="Ckqc" />
+                <ScalarProperty Name="Ccyhc" ColumnName="Ccyhc" />
+                <ScalarProperty Name="Ccykf" ColumnName="Ccykf" />
+                <ScalarProperty Name="Ccrkmfqday" ColumnName="Ccrkmfqday" />
+                <ScalarProperty Name="Ccrkmfqend" ColumnName="Ccrkmfqend" />
+                <ScalarProperty Name="Ccrkmfqstart" ColumnName="Ccrkmfqstart" />
+                <ScalarProperty Name="Cchc" ColumnName="Cchc" />
+                <ScalarProperty Name="Cckf" ColumnName="Cckf" />
+                <ScalarProperty Name="Rjzxdbend" ColumnName="Rjzxdbend" />
+                <ScalarProperty Name="Rjzxdbstart" ColumnName="Rjzxdbstart" />
+                <ScalarProperty Name="Rjzxdbf" ColumnName="Rjzxdbf" />
+                <ScalarProperty Name="Rjzxtxf" ColumnName="Rjzxtxf" />
+                <ScalarProperty Name="Rjzxrgsj" ColumnName="Rjzxrgsj" />
+                <ScalarProperty Name="Rjzxrkysf" ColumnName="Rjzxrkysf" />
+                <ScalarProperty Name="Rgdbf" ColumnName="Rgdbf" />
+                <ScalarProperty Name="Rgrgsj" ColumnName="Rgrgsj" />
+                <ScalarProperty Name="Rgrkjyf" ColumnName="Rgrkjyf" />
+                <ScalarProperty Name="Rtdbf" ColumnName="Rtdbf" />
+                <ScalarProperty Name="Rttlgyf" ColumnName="Rttlgyf" />
+                <ScalarProperty Name="Rtrgsj" ColumnName="Rtrgsj" />
+                <ScalarProperty Name="Rtrkysf" ColumnName="Rtrkysf" />
+                <ScalarProperty Name="Rjsz" ColumnName="Rjsz" />
+                <ScalarProperty Name="Rjtlzxlf" ColumnName="Rjtlzxlf" />
+                <ScalarProperty Name="Rjrgsj" ColumnName="Rjrgsj" />
+                <ScalarProperty Name="Rjdj" ColumnName="Rjdj" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Manualno" ColumnName="Manualno" />
+                <ScalarProperty Name="Conid" ColumnName="Conid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="LogisticsModel.Contract">
+              <MappingFragment StoreEntitySet="Contracts">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Demoid" ColumnName="Demoid" />
+                <ScalarProperty Name="Endtime" ColumnName="Endtime" />
+                <ScalarProperty Name="Startime" ColumnName="Startime" />
+                <ScalarProperty Name="Delaycost" ColumnName="Delaycost" />
+                <ScalarProperty Name="Settday" ColumnName="Settday" />
+                <ScalarProperty Name="Isexpire" ColumnName="Isexpire" />
+                <ScalarProperty Name="Iscontainer" ColumnName="Iscontainer" />
+                <ScalarProperty Name="Ishighway" ColumnName="Ishighway" />
+                <ScalarProperty Name="Israilway" ColumnName="Israilway" />
+                <ScalarProperty Name="Mncode" ColumnName="Mncode" />
+                <ScalarProperty Name="Customerid" ColumnName="Customerid" />
+                <ScalarProperty Name="Manualno" ColumnName="Manualno" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="LogisticsModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Ispay" ColumnName="Ispay" />
+                <ScalarProperty Name="LastExport" ColumnName="LastExport" />
+                <ScalarProperty Name="Isbatch" ColumnName="Isbatch" />
+                <ScalarProperty Name="Sign" ColumnName="Sign" />
+                <ScalarProperty Name="Trade" ColumnName="Trade" />
+                <ScalarProperty Name="Idcard" ColumnName="Idcard" />
+                <ScalarProperty Name="Emails" ColumnName="Emails" />
+                <ScalarProperty Name="Mobiles" ColumnName="Mobiles" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Banks" ColumnName="Banks" />
+                <ScalarProperty Name="Fexs" ColumnName="Fexs" />
+                <ScalarProperty Name="Manualno" ColumnName="Manualno" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Contract" ColumnName="Contract" />
+                <ScalarProperty Name="Phones" ColumnName="Phones" />
+                <ScalarProperty Name="MnCode" ColumnName="MnCode" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="LogisticsModel.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="DeptDescription" ColumnName="DeptDescription" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="LogisticsModel.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Groupname" ColumnName="Groupname" />
+                <ScalarProperty Name="Groupid" ColumnName="Groupid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="LogisticsModel.Job">
+              <MappingFragment StoreEntitySet="Jobs">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Memorycards">
+            <EntityTypeMapping TypeName="LogisticsModel.Memorycard">
+              <MappingFragment StoreEntitySet="Memorycards">
+                <ScalarProperty Name="Sourceorder" ColumnName="Sourceorder" />
+                <ScalarProperty Name="Stockindate" ColumnName="Stockindate" />
+                <ScalarProperty Name="Scustomername" ColumnName="Scustomername" />
+                <ScalarProperty Name="Scustomerid" ColumnName="Scustomerid" />
+                <ScalarProperty Name="Isallstockin" ColumnName="Isallstockin" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Supplyunit" ColumnName="Supplyunit" />
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sweight" ColumnName="Sweight" />
+                <ScalarProperty Name="Srpieces" ColumnName="Srpieces" />
+                <ScalarProperty Name="ScuroutWeight" ColumnName="ScuroutWeight" />
+                <ScalarProperty Name="Scuroutrpieces" ColumnName="Scuroutrpieces" />
+                <ScalarProperty Name="ScurinWeight" ColumnName="ScurinWeight" />
+                <ScalarProperty Name="Scurinrpieces" ColumnName="Scurinrpieces" />
+                <ScalarProperty Name="Wunit" ColumnName="Wunit" />
+                <ScalarProperty Name="Qunit" ColumnName="Qunit" />
+                <ScalarProperty Name="Hottoys" ColumnName="Hottoys" />
+                <ScalarProperty Name="Baname" ColumnName="Baname" />
+                <ScalarProperty Name="Maname" ColumnName="Maname" />
+                <ScalarProperty Name="Moname" ColumnName="Moname" />
+                <ScalarProperty Name="Brandname" ColumnName="Brandname" />
+                <ScalarProperty Name="Proname" ColumnName="Proname" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Contactor" ColumnName="Contactor" />
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+                <ScalarProperty Name="Acceptance" ColumnName="Acceptance" />
+                <ScalarProperty Name="Acceptanceid" ColumnName="Acceptanceid" />
+                <ScalarProperty Name="Carno" ColumnName="Carno" />
+                <ScalarProperty Name="Arrivalwayname" ColumnName="Arrivalwayname" />
+                <ScalarProperty Name="Arrivalwayid" ColumnName="Arrivalwayid" />
+                <ScalarProperty Name="Mncode" ColumnName="Mncode" />
+                <ScalarProperty Name="Conid" ColumnName="Conid" />
+                <ScalarProperty Name="Customername" ColumnName="Customername" />
+                <ScalarProperty Name="Customerid" ColumnName="Customerid" />
+                <ScalarProperty Name="Manualno" ColumnName="Manualno" />
+                <ScalarProperty Name="Recargoid" ColumnName="Recargoid" />
+                <ScalarProperty Name="Smanualno" ColumnName="Smanualno" />
+                <ScalarProperty Name="Stockinid" ColumnName="Stockinid" />
+                <ScalarProperty Name="MemorycardName" ColumnName="Memorycard" />
+                <ScalarProperty Name="Memoryid" ColumnName="Memoryid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="LogisticsModel.Menu">
+              <MappingFragment StoreEntitySet="Menus">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="MenuNo" ColumnName="MenuNo" />
+                <ScalarProperty Name="DisplayIcon" ColumnName="DisplayIcon" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperateLogs">
+            <EntityTypeMapping TypeName="LogisticsModel.OperateLog">
+              <MappingFragment StoreEntitySet="OperateLogs">
+                <ScalarProperty Name="MethodDesc" ColumnName="MethodDesc" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="ProcessDesc" ColumnName="ProcessDesc" />
+                <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductBatchs">
+            <EntityTypeMapping TypeName="LogisticsModel.ProductBatch">
+              <MappingFragment StoreEntitySet="ProductBatchs">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductBrands">
+            <EntityTypeMapping TypeName="LogisticsModel.ProductBrand">
+              <MappingFragment StoreEntitySet="ProductBrands">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductMaterials">
+            <EntityTypeMapping TypeName="LogisticsModel.ProductMaterial">
+              <MappingFragment StoreEntitySet="ProductMaterials">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductModules">
+            <EntityTypeMapping TypeName="LogisticsModel.ProductModule">
+              <MappingFragment StoreEntitySet="ProductModules">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="LogisticsModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="Mncode" ColumnName="Mncode" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Proname" ColumnName="Proname" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Racks">
+            <EntityTypeMapping TypeName="LogisticsModel.Rack">
+              <MappingFragment StoreEntitySet="Racks">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Rerackid" ColumnName="Rerackid" />
+                <ScalarProperty Name="Racktype" ColumnName="Racktype" />
+                <ScalarProperty Name="Rackname" ColumnName="Rackname" />
+                <ScalarProperty Name="Rackid" ColumnName="Rackid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="LogisticsModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockDetails">
+            <EntityTypeMapping TypeName="LogisticsModel.StockDetail">
+              <MappingFragment StoreEntitySet="StockDetails">
+                <ScalarProperty Name="Isbuttressall" ColumnName="Isbuttressall" />
+                <ScalarProperty Name="Ispacklist" ColumnName="Ispacklist" />
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Rpieces" ColumnName="Rpieces" />
+                <ScalarProperty Name="CuroutWeight" ColumnName="CuroutWeight" />
+                <ScalarProperty Name="Curoutrpieces" ColumnName="Curoutrpieces" />
+                <ScalarProperty Name="CurinWeight" ColumnName="CurinWeight" />
+                <ScalarProperty Name="Curinrpieces" ColumnName="Curinrpieces" />
+                <ScalarProperty Name="Hottoys" ColumnName="Hottoys" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="Floors" ColumnName="Floors" />
+                <ScalarProperty Name="Memorycard" ColumnName="Memorycard" />
+                <ScalarProperty Name="Memoryid" ColumnName="Memoryid" />
+                <ScalarProperty Name="Detailseqno" ColumnName="Detailseqno" />
+                <ScalarProperty Name="Buttressno" ColumnName="Buttressno" />
+                <ScalarProperty Name="Did" ColumnName="Did" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockMoves">
+            <EntityTypeMapping TypeName="LogisticsModel.StockMove">
+              <MappingFragment StoreEntitySet="StockMoves">
+                <ScalarProperty Name="Createtime" ColumnName="Createtime" />
+                <ScalarProperty Name="Createuser" ColumnName="Createuser" />
+                <ScalarProperty Name="Recordid" ColumnName="Recordid" />
+                <ScalarProperty Name="Manualno" ColumnName="Manualno" />
+                <ScalarProperty Name="Txdate" ColumnName="Txdate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Sackname" ColumnName="Sackname" />
+                <ScalarProperty Name="Sackid" ColumnName="Sackid" />
+                <ScalarProperty Name="Erackname" ColumnName="Erackname" />
+                <ScalarProperty Name="Erackid" ColumnName="Erackid" />
+                <ScalarProperty Name="Yrackname" ColumnName="Yrackname" />
+                <ScalarProperty Name="Yrackid" ColumnName="Yrackid" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Rpieces" ColumnName="Rpieces" />
+                <ScalarProperty Name="CuroutWeight" ColumnName="CuroutWeight" />
+                <ScalarProperty Name="Curoutrpieces" ColumnName="Curoutrpieces" />
+                <ScalarProperty Name="CurinWeight" ColumnName="CurinWeight" />
+                <ScalarProperty Name="Curinrpieces" ColumnName="Curinrpieces" />
+                <ScalarProperty Name="Wunit" ColumnName="Wunit" />
+                <ScalarProperty Name="Qunit" ColumnName="Qunit" />
+                <ScalarProperty Name="Hottoys" ColumnName="Hottoys" />
+                <ScalarProperty Name="Baname" ColumnName="Baname" />
+                <ScalarProperty Name="Maname" ColumnName="Maname" />
+                <ScalarProperty Name="Moname" ColumnName="Moname" />
+                <ScalarProperty Name="Brandname" ColumnName="Brandname" />
+                <ScalarProperty Name="Proname" ColumnName="Proname" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Mncode" ColumnName="Mncode" />
+                <ScalarProperty Name="Customername" ColumnName="Customername" />
+                <ScalarProperty Name="Customerid" ColumnName="Customerid" />
+                <ScalarProperty Name="Stocktype" ColumnName="Stocktype" />
+                <ScalarProperty Name="Stockno" ColumnName="Stockno" />
+                <ScalarProperty Name="Memorycard" ColumnName="Memorycard" />
+                <ScalarProperty Name="Memoryid" ColumnName="Memoryid" />
+                <ScalarProperty Name="Did" ColumnName="Did" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="LogisticsModel.Stock">
+              <MappingFragment StoreEntitySet="Stocks">
+                <ScalarProperty Name="Origdid" ColumnName="Origdid" />
+                <ScalarProperty Name="Sourcedid" ColumnName="Sourcedid" />
+                <ScalarProperty Name="Acceptance" ColumnName="Acceptance" />
+                <ScalarProperty Name="Acceptanceid" ColumnName="Acceptanceid" />
+                <ScalarProperty Name="Ishavedet" ColumnName="Ishavedet" />
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Createtime" ColumnName="Createtime" />
+                <ScalarProperty Name="Createuser" ColumnName="Createuser" />
+                <ScalarProperty Name="Stockintime" ColumnName="Stockintime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Contactor" ColumnName="Contactor" />
+                <ScalarProperty Name="Sid" ColumnName="Sid" />
+                <ScalarProperty Name="Carno" ColumnName="Carno" />
+                <ScalarProperty Name="Sackname" ColumnName="Sackname" />
+                <ScalarProperty Name="Sackid" ColumnName="Sackid" />
+                <ScalarProperty Name="Erackname" ColumnName="Erackname" />
+                <ScalarProperty Name="Erackid" ColumnName="Erackid" />
+                <ScalarProperty Name="Yrackname" ColumnName="Yrackname" />
+                <ScalarProperty Name="Yrackid" ColumnName="Yrackid" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Rpieces" ColumnName="Rpieces" />
+                <ScalarProperty Name="CuroutWeight" ColumnName="CuroutWeight" />
+                <ScalarProperty Name="Curoutrpieces" ColumnName="Curoutrpieces" />
+                <ScalarProperty Name="CurinWeight" ColumnName="CurinWeight" />
+                <ScalarProperty Name="Curinrpieces" ColumnName="Curinrpieces" />
+                <ScalarProperty Name="Wunit" ColumnName="Wunit" />
+                <ScalarProperty Name="Qunit" ColumnName="Qunit" />
+                <ScalarProperty Name="Hottoys" ColumnName="Hottoys" />
+                <ScalarProperty Name="Baname" ColumnName="Baname" />
+                <ScalarProperty Name="Maname" ColumnName="Maname" />
+                <ScalarProperty Name="Moname" ColumnName="Moname" />
+                <ScalarProperty Name="Brandname" ColumnName="Brandname" />
+                <ScalarProperty Name="Proname" ColumnName="Proname" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Mncode" ColumnName="Mncode" />
+                <ScalarProperty Name="Conid" ColumnName="Conid" />
+                <ScalarProperty Name="Customername" ColumnName="Customername" />
+                <ScalarProperty Name="Customerid" ColumnName="Customerid" />
+                <ScalarProperty Name="Manualno" ColumnName="Manualno" />
+                <ScalarProperty Name="Recargoid" ColumnName="Recargoid" />
+                <ScalarProperty Name="Smanualno" ColumnName="Smanualno" />
+                <ScalarProperty Name="Stockinid" ColumnName="Stockinid" />
+                <ScalarProperty Name="Memorycard" ColumnName="Memorycard" />
+                <ScalarProperty Name="Memoryid" ColumnName="Memoryid" />
+                <ScalarProperty Name="Did" ColumnName="Did" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stores">
+            <EntityTypeMapping TypeName="LogisticsModel.Store">
+              <MappingFragment StoreEntitySet="Stores">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Restoreid" ColumnName="Restoreid" />
+                <ScalarProperty Name="Outdoorarea" ColumnName="Outdoorarea" />
+                <ScalarProperty Name="Indoorarea" ColumnName="Indoorarea" />
+                <ScalarProperty Name="Totalarea" ColumnName="Totalarea" />
+                <ScalarProperty Name="Mobiles" ColumnName="Mobiles" />
+                <ScalarProperty Name="Phones" ColumnName="Phones" />
+                <ScalarProperty Name="Principals" ColumnName="Principals" />
+                <ScalarProperty Name="Mncode" ColumnName="Mncode" />
+                <ScalarProperty Name="Shortname" ColumnName="Shortname" />
+                <ScalarProperty Name="Names" ColumnName="Names" />
+                <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VenueStaffs">
+            <EntityTypeMapping TypeName="LogisticsModel.VenueStaff">
+              <MappingFragment StoreEntitySet="VenueStaffs">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Storeout" ColumnName="Storeout" />
+                <ScalarProperty Name="Storein" ColumnName="Storein" />
+                <ScalarProperty Name="Storeid" ColumnName="Storeid" />
+                <ScalarProperty Name="Jobsid" ColumnName="Jobsid" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Sexs" ColumnName="Sexs" />
+                <ScalarProperty Name="Idcard" ColumnName="Idcard" />
+                <ScalarProperty Name="Contactor" ColumnName="Contactor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CustomerGroup" TypeName="LogisticsModel.CustomerGroup" StoreEntitySet="CustomerGroup">
+            <EndProperty Name="Group">
+              <ScalarProperty Name="Groupid" ColumnName="Groupid" />
+            </EndProperty>
+            <EndProperty Name="Customer">
+              <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RoleButton" TypeName="LogisticsModel.RoleButton" StoreEntitySet="RoleButton">
+            <EndProperty Name="Role">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="Button">
+              <ScalarProperty Name="Id" ColumnName="ButtonId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RoleMenu" TypeName="LogisticsModel.RoleMenu" StoreEntitySet="RoleMenu">
+            <EndProperty Name="Role">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="Menu">
+              <ScalarProperty Name="Id" ColumnName="MenuId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="LoginUsers">
+            <EntityTypeMapping TypeName="LogisticsModel.LoginUser">
+              <MappingFragment StoreEntitySet="LoginUsers">
+                <ScalarProperty Name="Modifytime" ColumnName="Modifytime" />
+                <ScalarProperty Name="Modifyuser" ColumnName="Modifyuser" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="QQ" ColumnName="QQ" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="LogisitcsContext" ZoomLevel="95">
+        <EntityTypeShape EntityType="LogisticsModel.BillDetail" Width="1.5" PointX="3" PointY="1" Height="4.480205078125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsModel.BillRecord" Width="1.5" PointX="0.75" PointY="2" Height="2.5571907552083326" IsExpanded="true" />
+        <AssociationConnector Association="LogisticsModel.FK_BillDetails_Record" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.37474609375" />
+          <ConnectorPoint PointX="3" PointY="3.37474609375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LogisticsModel.Bill" Width="1.5" PointX="5.25" PointY="12" Height="5.8263151041666639" />
+        <EntityTypeShape EntityType="LogisticsModel.Button" Width="1.5" PointX="3.125" PointY="25.5" Height="3.1340950520833317" />
+        <EntityTypeShape EntityType="LogisticsModel.Charge" Width="1.5" PointX="7.625" PointY="5.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="LogisticsModel.ContractRate" Width="1.5" PointX="9.875" PointY="10.75" Height="8.7108365885416674" />
+        <EntityTypeShape EntityType="LogisticsModel.Contract" Width="1.5" PointX="7.625" PointY="8.75" Height="4.6725065104166674" />
+        <EntityTypeShape EntityType="LogisticsModel.Customer" Width="1.5" PointX="0.75" PointY="9.125" Height="6.7878222656250031" />
+        <EntityTypeShape EntityType="LogisticsModel.Department" Width="1.5" PointX="9.625" PointY="4.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="LogisticsModel.Group" Width="1.5" PointX="3" PointY="34.375" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="LogisticsModel.Job" Width="1.5" PointX="11.625" PointY="0.75" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="LogisticsModel.Memorycard" Width="1.5" PointX="3" PointY="14.5" Height="9.4800423177083388" />
+        <EntityTypeShape EntityType="LogisticsModel.Menu" Width="1.5" PointX="3.125" PointY="29.375" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="LogisticsModel.OperateLog" Width="1.5" PointX="11.625" PointY="3.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="LogisticsModel.ProductBatch" Width="1.5" PointX="9.875" PointY="21" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="LogisticsModel.ProductBrand" Width="1.5" PointX="12.625" PointY="7.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="LogisticsModel.ProductMaterial" Width="1.5" PointX="9.875" PointY="24.25" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="LogisticsModel.ProductModule" Width="1.5" PointX="9.875" PointY="27.5" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="LogisticsModel.Product" Width="1.5" PointX="7.625" PointY="14.375" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="LogisticsModel.Rack" Width="1.5" PointX="9.625" PointY="0.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="LogisticsModel.Role" Width="1.5" PointX="5.375" PointY="27.625" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="LogisticsModel.StockDetail" Width="1.5" PointX="13.625" PointY="0.75" Height="4.6725065104166674" />
+        <EntityTypeShape EntityType="LogisticsModel.StockMove" Width="1.5" PointX="3" PointY="37.375" Height="8.3262337239583246" />
+        <EntityTypeShape EntityType="LogisticsModel.Stock" Width="1.5" PointX="12.625" PointY="11.75" Height="10.056946614583325" />
+        <EntityTypeShape EntityType="LogisticsModel.Store" Width="1.5" PointX="3.625" PointY="6.75" Height="4.48020507812501" />
+        <EntityTypeShape EntityType="LogisticsModel.VenueStaff" Width="1.5" PointX="14.625" PointY="6.75" Height="3.7109993489583246" />
+        <AssociationConnector Association="LogisticsModel.FK_BillDetails_Customers" >
+          <ConnectorPoint PointX="2.25" PointY="9.1261528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="8.7511528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="4.6510290182291669" />
+          <ConnectorPoint PointX="3" PointY="4.6510290182291669" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_BillDetails_Memorycard" >
+          <ConnectorPoint PointX="3.28125" PointY="14.5" />
+          <ConnectorPoint PointX="3.28125" PointY="5.8648079427083326" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_Bills_Record" >
+          <ConnectorPoint PointX="2.25" PointY="4.6871834951923068" />
+          <ConnectorPoint PointX="2.5660744349011213" PointY="5.0032579300934277" />
+          <ConnectorPoint PointX="2.6839255650988791" PointY="5.121109060291186" />
+          <ConnectorPoint PointX="2.8125" PointY="5.2496834951923068" />
+          <ConnectorPoint PointX="2.8125" PointY="11.625" />
+          <ConnectorPoint PointX="3.1979166666666665" PointY="11.625" />
+          <ConnectorPoint PointX="3.3645833333333335" PointY="11.625" />
+          <ConnectorPoint PointX="4.0735897435897437" PointY="11.625" />
+          <ConnectorPoint PointX="4.24025641025641" PointY="11.625" />
+          <ConnectorPoint PointX="4.5201282051282048" PointY="11.625" />
+          <ConnectorPoint PointX="4.6867948717948709" PointY="11.625" />
+          <ConnectorPoint PointX="4.8761528461538459" PointY="11.625" />
+          <ConnectorPoint PointX="5.2511528461538459" PointY="12" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_Bills_Customer" >
+          <ConnectorPoint PointX="2.25" PointY="13.21875" />
+          <ConnectorPoint PointX="3.1979166666666665" PointY="13.21875" />
+          <ConnectorPoint PointX="3.3645833333333335" PointY="13.21875" />
+          <ConnectorPoint PointX="5.25" PointY="13.21875" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_ContractRates_Contracts_Conid" >
+          <ConnectorPoint PointX="9.125" PointY="12.086253255208334" />
+          <ConnectorPoint PointX="9.875" PointY="12.086253255208334" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_ContractRates_Products_Proid" >
+          <ConnectorPoint PointX="9.125" PointY="16.134348958333334" />
+          <ConnectorPoint PointX="9.875" PointY="16.134348958333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_Contracts_Customers_Customerid" >
+          <ConnectorPoint PointX="2.25" PointY="11.396352539062505" />
+          <ConnectorPoint PointX="2.7291666666666665" PointY="11.396352539062505" />
+          <ConnectorPoint PointX="2.8958333333333335" PointY="11.396352539062505" />
+          <ConnectorPoint PointX="3.1979166666666665" PointY="11.396352539062505" />
+          <ConnectorPoint PointX="3.3645833333333335" PointY="11.396352539062505" />
+          <ConnectorPoint PointX="4.0735897435897437" PointY="11.396352539062505" />
+          <ConnectorPoint PointX="4.24025641025641" PointY="11.396352539062505" />
+          <ConnectorPoint PointX="4.5201282051282048" PointY="11.396352539062505" />
+          <ConnectorPoint PointX="4.6867948717948709" PointY="11.396352539062505" />
+          <ConnectorPoint PointX="7.625" PointY="11.396352539062505" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_Memorycards_Customer" >
+          <ConnectorPoint PointX="2.25" PointY="15.206411132812502" />
+          <ConnectorPoint PointX="3" PointY="15.206411132812502" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_StockMoves_Customers" >
+          <ConnectorPoint PointX="1.5" PointY="15.912822265625003" />
+          <ConnectorPoint PointX="1.5" PointY="41.538116861979162" />
+          <ConnectorPoint PointX="3" PointY="41.538116861979162" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_Menus_Menus" >
+          <ConnectorPoint PointX="3.6569230769230767" PointY="32.701396484375" />
+          <ConnectorPoint PointX="3.6569230769230767" PointY="32.951396484375" />
+          <ConnectorPoint PointX="4.1034615384615378" PointY="32.951396484375" />
+          <ConnectorPoint PointX="4.1034615384615378" PointY="32.701396484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_ProductBatchs_Products_Proid" >
+          <ConnectorPoint PointX="8.375" PointY="17.893697916666667" />
+          <ConnectorPoint PointX="8.375" PointY="22.278595377604169" />
+          <ConnectorPoint PointX="8.6979191666666669" PointY="22.278595377604169" />
+          <ConnectorPoint PointX="8.8645858333333347" PointY="22.278595377604169" />
+          <ConnectorPoint PointX="9.875" PointY="22.278595377604169" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_ProductMaterials_Products_Proid" >
+          <ConnectorPoint PointX="8.7812525" PointY="17.893697916666667" />
+          <ConnectorPoint PointX="8.7812525" PointY="25.528595377604169" />
+          <ConnectorPoint PointX="9.875" PointY="25.528595377604169" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_ProductModules_Products_Proid" >
+          <ConnectorPoint PointX="7.9687475" PointY="17.893697916666667" />
+          <ConnectorPoint PointX="7.9687475" PointY="28.778595377604169" />
+          <ConnectorPoint PointX="9.875" PointY="28.778595377604169" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_Racks_Racks_Rerackid" >
+          <ConnectorPoint PointX="10.156923076923077" PointY="3.6917936197916674" />
+          <ConnectorPoint PointX="10.156923076923077" PointY="3.9417936197916674" />
+          <ConnectorPoint PointX="10.603461538461538" PointY="3.9417936197916674" />
+          <ConnectorPoint PointX="10.603461538461538" PointY="3.6917936197916674" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.FK_Stores_Stores_Restoreid" >
+          <ConnectorPoint PointX="4.1569230769230767" PointY="11.23020507812501" />
+          <ConnectorPoint PointX="4.1569230769230767" PointY="11.85520507812501" />
+          <ConnectorPoint PointX="4.6034615384615378" PointY="11.85520507812501" />
+          <ConnectorPoint PointX="4.6034615384615378" PointY="11.23020507812501" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.CustomerGroup" >
+          <ConnectorPoint PointX="1.9062525" PointY="15.912822265625003" />
+          <ConnectorPoint PointX="1.9062525" PointY="35.4612939453125" />
+          <ConnectorPoint PointX="3" PointY="35.4612939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.RoleButton" >
+          <ConnectorPoint PointX="4.625" PointY="28.129547526041666" />
+          <ConnectorPoint PointX="5.375" PointY="28.129547526041666" />
+        </AssociationConnector>
+        <AssociationConnector Association="LogisticsModel.RoleMenu" >
+          <ConnectorPoint PointX="4.625" PointY="30.067047526041669" />
+          <ConnectorPoint PointX="5.375" PointY="30.067047526041669" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="LogisticsModel.LoginUser" Width="1.5" PointX="7.625" PointY="32.125" Height="4.0956022135416674" />
+        <AssociationConnector Association="LogisticsModel.FK_Users_Roles_RoleId" >
+          <ConnectorPoint PointX="6.125" PointY="30.759095052083335" />
+          <ConnectorPoint PointX="6.125" PointY="34.172801106770834" />
+          <ConnectorPoint PointX="7.625" PointY="34.172801106770834" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

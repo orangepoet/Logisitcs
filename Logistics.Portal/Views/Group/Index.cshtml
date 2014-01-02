@@ -1,0 +1,101 @@
+﻿<ipnut type="hidden" id="MenuNo" value="Menus" />
+<div id="layout">
+    <div position="left" id="mainmenu" title="分组操作">
+        <ul id="tree">
+        </ul>
+    </div>
+    <div id="list" position="center" />
+</div>
+<ul class="iconlist">
+</ul>
+@section footer{
+    <script type="text/javascript">
+        var url_tree = '@Url.Content("~/Group/GetTree")';
+        var url_getmembers = "@Url.Content("~/Group/GetMembers")";
+        var url_getnomembers = "@Url.Content("~/Group/GetNoMembers")";
+        var url_getallgroups = "@Url.Content("~/Group/GetGroups")";
+        var memcolumns = [
+              { hide: true, display: '公司编号', name: 'CustomerId' }
+            , { display: '公司名称', name: 'CustomerName', align: 'left', width: 180, minWidth: 60 }
+            , { display: '简称', name: 'ShortName', align: 'left', width: 141, minWidth: 60  }
+            , { display: '助记码', name: 'MnCode', align: 'left', width: 141, minWidth: 60 }
+            , { display: '公司地址', name: 'Address', align: 'left', width: 141, minWidth: 60 }
+            , { display: '联系电话', name: 'Phones', align: 'left', width: 141, minWidth: 60 }
+            , { display: '联系人', name: 'Contract', align: 'left', width: 141, minWidth: 60 }
+        ];
+        var grpcolumns = [
+              { display: '分组编号', name: 'Groupid',align: 'left', width: 180, minWidth: 60 }
+            , { display: '分组名称', name: 'Groupname', align: 'left', width: 180, minWidth: 60, editor: { type: 'text'} }
+        ]
+        var mem_items =[
+                 { id:"C" ,text: '添加成员', click: Membtnitems,img:'@Url.Content("~/Content/icons/silkicons/add.png")'}
+                ,{ line: true }
+                ,{id:"D" ,text: '删除成员', click: Membtnitems,img:'@Url.Content("~/Content/icons/silkicons/delete.png")'}
+            ];
+        
+        var grp_items = [
+                 { id:"C" ,text: '添加分组', click: Grpbtnitems,img:'@Url.Content("~/Content/icons/silkicons/add.png")'}
+                ,{ line: true }
+                ,{id:"D" ,text: '移除分组', click: Grpbtnitems,img:'@Url.Content("~/Content/icons/silkicons/delete.png")'}
+            ];
+
+        function Membtnitems(item) {
+            switch (item.id) {
+                case "C":
+                    child = $.ligerDialog.open({ width: 800,height: 400, url: '@Url.Action("MemberList", "Group")',  showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title:'客户列表'});
+                    break;
+                case "D":
+                    var groupid = tree.getSelected().data.id;
+                    var rows = grid.getSelecteds();
+                    if (rows.length == 0) { $.ligerDialog.warn('请选择行!'); return }
+                    $.ligerDialog.confirm("确认删除吗", function (r) {
+                        if (r) {
+                            LG.gridpost('@Url.Action("DeleteMembers")', { data: JSON.stringify(rows),groupid: groupid }, grid);
+                        }
+                    });
+                    break;
+            }
+        }
+
+        function Grpbtnitems(item) {
+            switch(item.id) { 
+                case "C":
+                    child = $.ligerDialog.open({ width: 600, height: 200, url: '@Url.Action("Create")', showMax: true, showToggle: true, showMin: true, isResize: true, modal: true, title: '分组新增' });
+                    break;
+                case "D":
+                    var rows = grid.getSelecteds();
+                    if (rows.length == 0) { $.ligerDialog.warn('请选择行!'); return }
+                    $.ligerDialog.confirm("确认删除吗", function (r) {
+                        if (r) {
+                            LG.gridpost('@Url.Action("Delete")', { data: JSON.stringify(rows) }, grid);
+                        }
+                    });
+                    break;
+            }
+        }
+
+        $(function () {
+            $("#layout").ligerLayout({ leftWidth: 140 });
+            tree = $("#tree").ligerTree({
+                url: url_tree,
+                checkbox: false,
+                onClick: function (node) {
+                   groupid = node.data.id;
+                   if(groupid!=0){
+                        grid = $("#list").ligerGrid({
+                            url: url_getmembers + '/' + groupid, columns: memcolumns, dataAction: 'server', pageSize: 20, enabledSort: false,
+                            rownumbers:true,width: '98%', height: '100%', heightDiff: -10, checkbox: false, toolbar: {}
+                        });
+                        grid.toolbarManager.set("items", mem_items);
+                   }else{
+                        grid = $("#list").ligerGrid({
+                            url: url_getallgroups, columns: grpcolumns, dataAction: 'server',method: "get", pageSize: 20, enabledSort: false,
+                            rownumbers:true,width: '98%', height: '100%', heightDiff: -10, checkbox: false, toolbar: {}
+                        });
+                        grid.toolbarManager.set("items", grp_items);
+                   }
+                }
+            });
+        });        
+    </script>
+}

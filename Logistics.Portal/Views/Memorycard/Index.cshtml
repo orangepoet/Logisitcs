@@ -1,0 +1,21 @@
+﻿<div id="list" />
+@section footer{
+    <script type="text/javascript">
+        var columns = [
+              { hide: true, display: '存储号编号', name: 'Memoryid' }
+            , { display: '存储卡号', name: 'MemorycardName', align: 'left', width: 180, minWidth: 60 }
+            , { display: '入库重量', name: 'Scurinrpieces', align: 'left', width: 141, minWidth: 60 }
+            , { display: '入库数量', name: 'ScurinWeight', align: 'left', width: 141, minWidth: 60 }
+            , { display: '出库重量', name: 'ScuroutWeight', align: 'left', width: 141, minWidth: 60 }
+            , { display: '出库数量', name: 'Scuroutrpieces', align: 'left', width: 141, minWidth: 60 }
+            , { display: '现有重量', name: 'Sweight', align: 'left', width: 141, minWidth: 60 }
+            , { display: '现有数量', name: 'Srpieces', align: 'left', width: 141, minWidth: 60 }
+        ];
+        $(function () {
+            grid = $("#list").ligerGrid({
+                url: '@Url.Action("GetGrid")', columns: columns, dataAction: 'server', pageSize: 20, sortName: 'Memoryid', sortOrder: 'asc',
+                rownumbers: true, width: '98%', height: '100%', heightDiff: -10, checkbox: false
+            })
+        });
+    </script>
+}

@@ -1,0 +1,73 @@
+﻿@{
+    string action = (string)ViewBag.Action;
+    string id = (string)ViewBag.Id;
+    string url = Url.Action("Get", new { id = id });
+}
+<div title="库存信息" style="height: 350px">
+    <div id="form1">
+    </div>
+</div>
+<div class="l-form">
+    <div class="l-group">
+        <span>库存明细</span>
+    </div>
+</div>
+<div id="details">
+</div>
+@section footer{
+    @Scripts.Render("~/bundles/ligerui-form")
+    <script type="text/javascript">
+        var fields = [
+             { display: "存储卡号", name: "Memorycard", newline: false, labelWidth: 100, width: 180, type: "text", group: "库存管理" }
+            , { display: "入库单号", name: "Smanualno", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "收货单号", name: "Manualno", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "公司名称", name: "Customername", newline: true, labelWidth: 100, width: 180, type: "text" }
+            , { display: "助记码", name: "Mncode", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "到货方式", name: "Arrivalwayname", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "车(厢)号", name: "Carno", newline: true, labelWidth: 100, width: 180, type: "text" }
+            , { display: "验货方式", name: "Acceptance", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "场地人员", name: "Contactor", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "货品名称", name: "Proname", newline: true, labelWidth: 100, width: 180, type: "text" }
+            , { display: "品牌名称", name: "Brandname", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "规格名称", name: "Moname", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "材质名称", name: "Maname", newline: true, labelWidth: 100, width: 180, type: "text" }
+            , { display: "批号名称", name: "Baname", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "供货单位", name: "SupplyUnit", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "入库数量", name: "Curinrpieces", newline: true, labelWidth: 100, width: 180, type: "text" }
+            , { display: "出库数量", name: "Curoutrpieces", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "现有数量", name: "Rpieces", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "入库重量", name: "CurinWeight", newline: true, labelWidth: 100, width: 180, type: "text" }
+            , { display: "出库重量", name: "CuroutWeight", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "现有重量", name: "Weight", newline: false, labelWidth: 100, width: 180, type: "text" }
+            , { display: "备注", name: "Remark", newline: true, labelWidth: 100, width: 550, space: 40, type: "textarea" }
+        ];
+        var columns = [
+            { display: '存储卡号', name: 'Memorycard', align: 'left', width: 180, minWidth: 60 }
+            , { display: '垛号', name: 'Buttressno', align: 'left', width: 80, minWidth: 60 }
+            , { display: '层次', name: 'Floors', align: 'left', width: 80, minWidth: 60 }
+            , { display: '块/件', name: 'Unit', align: 'left', width: 80, minWidth: 60 }
+            , { display: '散件', name: 'Hottoys', align: 'left', width: 80, minWidth: 60 }
+            , { display: '细码一', name: 'Fir', align: 'left', width: 80, minWidth: 60 }
+            , { display: '细码二', name: 'Sec', align: 'left', width: 80, minWidth: 60 }
+            , { display: '细码三', name: 'Thi', align: 'left', width: 80, minWidth: 60 }
+            , { display: '细码四', name: 'Fou', align: 'left', width: 80, minWidth: 60 }
+            , { display: '细码五', name: 'Fif', align: 'left', width: 80, minWidth: 60 }
+            , { display: '细码六', name: 'Six', align: 'left', width: 80, minWidth: 60 }
+        ]
+        $(function () {
+            var form = $("#form1");
+            form.ligerForm({ inputWidth: 180, fields: fields });
+            LG.loadForm(form
+                       , { url: '@url' }
+                       , function (data) {
+                           if (data != null) {
+                               $("#details").ligerGrid({
+                                   columns: columns, data: data.StockDetails, pageSize: 10, sortName: 'Buttressno', sortOrder: 'asc',
+                                   rownumbers: true, width: '90%', heightDiff: -10, checkbox: false
+                               });
+                           }
+                       });
+            LG.setFormStatus(form, false);
+        });
+    </script>
+}
